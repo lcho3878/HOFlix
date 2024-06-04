@@ -186,18 +186,10 @@ class LottoViewController: UIViewController {
     private func configureSubViews() {
         view.addSubview(lottoStackView)
         
-        lottoStackView.addArrangedSubview(circle1)
-        lottoStackView.addArrangedSubview(circle2)
-        lottoStackView.addArrangedSubview(circle3)
-        lottoStackView.addArrangedSubview(circle4)
-        lottoStackView.addArrangedSubview(circle5)
-        lottoStackView.addArrangedSubview(circle6)
-        circle1.addSubview(label1)
-        circle2.addSubview(label2)
-        circle3.addSubview(label3)
-        circle4.addSubview(label4)
-        circle5.addSubview(label5)
-        circle6.addSubview(label6)
+        for i in 0..<circleList.count - 1 {
+            lottoStackView.addArrangedSubview(circleList[i])
+            circleList[i].addSubview(labelList[i])
+        }
         
         view.addSubview(plusImageView)
         
@@ -279,18 +271,9 @@ class LottoViewController: UIViewController {
     }
 
     private func updateView(_ lotto: Lotto) {
-        var list = [
-            lotto.drwtNo1,
-            lotto.drwtNo2,
-            lotto.drwtNo3,
-            lotto.drwtNo4,
-            lotto.drwtNo5,
-            lotto.drwtNo6,
-        ].sorted()
-        list.append(lotto.bnusNo)
         for i in 0..<labelList.count {
-            labelList[i].text = "\(list[i])"
-            circleList[i].backgroundColor = colorOfNumber(list[i])
+            labelList[i].text = "\(lotto.drwtNoList[i])"
+            circleList[i].backgroundColor = colorOfNumber(lotto.drwtNoList[i])
         }
         contentLabel.text = lotto.content
     }
@@ -325,6 +308,19 @@ struct Lotto: Decodable {
     let drwtNo6: Int
     let bnusNo: Int
     let firstPrzwnerCo: Int
+    
+    var drwtNoList: [Int] {
+        var list = [
+            drwtNo1,
+            drwtNo2,
+            drwtNo3,
+            drwtNo4,
+            drwtNo5,
+            drwtNo6,
+        ].sorted()
+        list.append(bnusNo)
+        return list
+    }
     
     var content: String {
         return "1등 당첨금 \(firstWinamnt.formatted())원 (당첨 복권수 \(firstPrzwnerCo)개)"
