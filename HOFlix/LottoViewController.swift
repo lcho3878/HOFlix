@@ -143,6 +143,7 @@ class LottoViewController: UIViewController {
         textField.placeholder = "회차를 입력해주세요"
         textField.backgroundColor = .lightGray
         textField.textAlignment = .center
+        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -160,6 +161,8 @@ class LottoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        roundTextField.text = "1122"
+        checkButtonClicked()
         configureUI()
         configureSubViews()
         configureLayout()
@@ -256,8 +259,15 @@ class LottoViewController: UIViewController {
     
     @objc
     private func checkButtonClicked() {
-        let round = roundTextField.text! == "" ? "1122" : roundTextField.text!
-        let url = lottoAPI + round
+        guard let round = Int(roundTextField.text!), round <= 1122 else {
+            let alert = UIAlertController(title: "오류", message: "1122 이하의 숫자만 입력가능합니다.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(ok)
+            present(alert, animated: true)
+            return
+        }
+        
+        let url = lottoAPI + String(round)
         AF.request(url).responseDecodable(of: Lotto.self) { response in
             switch response.result {
             case .success(let lotto):
