@@ -14,6 +14,7 @@
 		5422F21A2C0EFA610093932B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5422F2192C0EFA610093932B /* Assets.xcassets */; };
 		5422F21D2C0EFA610093932B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5422F21C2C0EFA610093932B /* Base */; };
 		5422F2262C0EFD640093932B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5422F2252C0EFD640093932B /* SnapKit */; };
+		5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2272C0F24C70093932B /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		5422F2192C0EFA610093932B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5422F21C2C0EFA610093932B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5422F21E2C0EFA610093932B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5422F2272C0F24C70093932B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				5422F2102C0EFA600093932B /* AppDelegate.swift */,
 				5422F2122C0EFA600093932B /* SceneDelegate.swift */,
 				5422F2142C0EFA600093932B /* HomeViewController.swift */,
+				5422F2272C0F24C70093932B /* SignUpViewController.swift */,
 				5422F2162C0EFA600093932B /* Main.storyboard */,
 				5422F2192C0EFA610093932B /* Assets.xcassets */,
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			files = (
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
+				5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */,
 				5422F2132C0EFA600093932B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
