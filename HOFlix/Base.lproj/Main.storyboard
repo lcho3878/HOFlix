@@ -37,6 +37,7 @@
                     <connections>
                         <segue destination="U5D-Wj-tDz" kind="relationship" relationship="viewControllers" id="gQ8-Sb-ZU4"/>
                         <segue destination="scC-Lp-zz9" kind="relationship" relationship="viewControllers" id="XCV-xH-eMc"/>
+                        <segue destination="mMY-Fn-qak" kind="relationship" relationship="viewControllers" id="Jaa-x8-a3d"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFa-5K-ZPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,6 +79,22 @@
             </objects>
             <point key="canvasLocation" x="1921" y="696"/>
         </scene>
+        <!--Lotto View Controller-->
+        <scene sceneID="EYR-of-fSu">
+            <objects>
+                <viewController id="6Bz-cg-KnW" customClass="LottoViewController" customModule="HOFlix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hyZ-mk-mDz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fNO-S4-3Hr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QOB-E8-NFn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAt-Yt-Z2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1921" y="1415"/>
+        </scene>
         <!--회원가입-->
         <scene sceneID="Cxc-dn-zJq">
             <objects>
@@ -96,6 +113,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7f-wh-1Ku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="995" y="696"/>
+        </scene>
+        <!--Lotto-->
+        <scene sceneID="Fe4-SP-gNd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mMY-Fn-qak" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Lotto" id="kUl-fo-3D5"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="veU-ap-PXo">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Bz-cg-KnW" kind="relationship" relationship="rootViewController" id="Trs-eU-irg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mLs-3m-d2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995" y="1415"/>
         </scene>
     </scenes>
     <resources>

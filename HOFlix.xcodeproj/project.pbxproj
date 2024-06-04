@@ -15,6 +15,8 @@
 		5422F21D2C0EFA610093932B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5422F21C2C0EFA610093932B /* Base */; };
 		5422F2262C0EFD640093932B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5422F2252C0EFD640093932B /* SnapKit */; };
 		5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2272C0F24C70093932B /* SignUpViewController.swift */; };
+		5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2292C0F2D970093932B /* LottoViewController.swift */; };
+		5422F22D2C0F2DF30093932B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5422F22C2C0F2DF30093932B /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,7 @@
 		5422F21C2C0EFA610093932B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5422F21E2C0EFA610093932B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5422F2272C0F24C70093932B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5422F2292C0F2D970093932B /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5422F2262C0EFD640093932B /* SnapKit in Frameworks */,
+				5422F22D2C0F2DF30093932B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +68,7 @@
 				5422F2122C0EFA600093932B /* SceneDelegate.swift */,
 				5422F2142C0EFA600093932B /* HomeViewController.swift */,
 				5422F2272C0F24C70093932B /* SignUpViewController.swift */,
+				5422F2292C0F2D970093932B /* LottoViewController.swift */,
 				5422F2162C0EFA600093932B /* Main.storyboard */,
 				5422F2192C0EFA610093932B /* Assets.xcassets */,
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
@@ -90,6 +95,7 @@
 			name = HOFlix;
 			packageProductDependencies = (
 				5422F2252C0EFD640093932B /* SnapKit */,
+				5422F22C2C0F2DF30093932B /* Alamofire */,
 			);
 			productName = HOFlix;
 			productReference = 5422F20D2C0EFA600093932B /* HOFlix.app */;
@@ -121,6 +127,7 @@
 			mainGroup = 5422F2042C0EFA600093932B;
 			packageReferences = (
 				5422F2242C0EFD640093932B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5422F22B2C0F2DF30093932B /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 5422F20E2C0EFA600093932B /* Products */;
 			projectDirPath = "";
@@ -149,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
 				5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */,
@@ -383,6 +391,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		5422F22B2C0F2DF30093932B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -390,6 +406,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5422F2242C0EFD640093932B /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		5422F22C2C0F2DF30093932B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5422F22B2C0F2DF30093932B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
