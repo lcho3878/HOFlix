@@ -7,8 +7,15 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class BoxOfficeViewController: UIViewController {
+    
+    private var movieList: [Movie] = [] {
+        didSet{
+            boxTableView.reloadData()
+        }
+    }
 
     private let searchTextField: UITextField = {
         let view = UITextField()
@@ -23,6 +30,7 @@ class BoxOfficeViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .white
         button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(searchButtonClicked), for: .touchUpInside)
         return button
     }()
     
@@ -82,17 +90,37 @@ class BoxOfficeViewController: UIViewController {
         boxTableView.dataSource = self
     }
 
+    private func getBoxOffice() {
+        let api = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
+        let key = APIKey.movieAPIKey
+        let date = "20120101"
+        let url = api + "key=" + key + "&targetDt=" + date
+        
+        AF.request(url).responseDecodable(of: BoxOfficeResult.self) { response in
+            switch response.result {
+            case .success(let value):
+                self.movieList = value.boxOfficeResult.dailyBoxOfficeList
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    @objc
+    private func searchButtonClicked() {
+        getBoxOffice()
+    }
 }
 
 extension BoxOfficeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-    
-    
 }
+
+
 

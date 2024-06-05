@@ -20,6 +20,7 @@
 		5422F2B92C1052FB0093932B /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2B82C1052FB0093932B /* APIKey.swift */; };
 		5422F2BB2C1053D80093932B /* BoxOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2BA2C1053D80093932B /* BoxOfficeViewController.swift */; };
 		5422F2C12C1058830093932B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C02C1058830093932B /* UITextField+Extension.swift */; };
+		5422F2C42C105E800093932B /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C32C105E800093932B /* MovieModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5422F2B82C1052FB0093932B /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		5422F2BA2C1053D80093932B /* BoxOfficeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeViewController.swift; sourceTree = "<group>"; };
 		5422F2C02C1058830093932B /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		5422F2C32C105E800093932B /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,7 @@
 				5422F2122C0EFA600093932B /* SceneDelegate.swift */,
 				5422F2142C0EFA600093932B /* HomeViewController.swift */,
 				5422F2272C0F24C70093932B /* SignUpViewController.swift */,
-				5422F2BA2C1053D80093932B /* BoxOfficeViewController.swift */,
+				5422F2C22C105E720093932B /* BoxOfficeView */,
 				5422F2292C0F2D970093932B /* LottoViewController.swift */,
 				5422F2192C0EFA610093932B /* Assets.xcassets */,
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
@@ -92,6 +94,15 @@
 				5422F2C02C1058830093932B /* UITextField+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		5422F2C22C105E720093932B /* BoxOfficeView */ = {
+			isa = PBXGroup;
+			children = (
+				5422F2BA2C1053D80093932B /* BoxOfficeViewController.swift */,
+				5422F2C32C105E800093932B /* MovieModel.swift */,
+			);
+			path = BoxOfficeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5422F2C42C105E800093932B /* MovieModel.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
