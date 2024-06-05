@@ -140,6 +140,11 @@ class LottoViewController: UIViewController {
         return label
     }()
     
+    private let pickerView: UIPickerView = {
+        let view = UIPickerView()
+        return view
+    }()
+    
     private let roundTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "회차를 입력해주세요"
@@ -167,6 +172,7 @@ class LottoViewController: UIViewController {
         configureUI()
         configureSubViews()
         configureLayout()
+        configurePickerView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -182,6 +188,8 @@ class LottoViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         navigationItem.title = "로또 번호 조회하기"
+        
+        roundTextField.inputView = pickerView
     }
     
     private func configureSubViews() {
@@ -248,6 +256,11 @@ class LottoViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         
+    }
+    
+    private func configurePickerView() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
     @objc
@@ -320,6 +333,31 @@ class LottoViewController: UIViewController {
             return .systemGreen
         }
     }
+}
+
+extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        guard let recentRound else { return 1 }
+        return recentRound
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let recentRound else { return "서버 오류"}
+        return "\(recentRound - row) 회차"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let recentRound else { return }
+        roundTextField.text = String(recentRound - row)
+    }
+    
+    
 }
 
 struct Lotto: Decodable {
