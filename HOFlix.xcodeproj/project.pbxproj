@@ -16,6 +16,7 @@
 		5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2272C0F24C70093932B /* SignUpViewController.swift */; };
 		5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2292C0F2D970093932B /* LottoViewController.swift */; };
 		5422F22D2C0F2DF30093932B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5422F22C2C0F2DF30093932B /* Alamofire */; };
+		5422F2B72C1052E50093932B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5422F2B62C1052E50093932B /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5422F21E2C0EFA610093932B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5422F2272C0F24C70093932B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5422F2292C0F2D970093932B /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
+		5422F2B62C1052E50093932B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		5422F2042C0EFA600093932B = {
 			isa = PBXGroup;
 			children = (
+				5422F2B62C1052E50093932B /* .gitignore */,
 				5422F20F2C0EFA600093932B /* HOFlix */,
 				5422F20E2C0EFA600093932B /* Products */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5422F21A2C0EFA610093932B /* Assets.xcassets in Resources */,
+				5422F2B72C1052E50093932B /* .gitignore in Resources */,
 				5422F21D2C0EFA610093932B /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
