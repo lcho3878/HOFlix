@@ -360,6 +360,7 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let recentRound else { return }
         roundTextField.text = String(recentRound - row)
+        checkButtonClicked()
     }
     
     
