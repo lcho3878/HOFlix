@@ -18,6 +18,8 @@ class LottoViewController: UIViewController {
     //1122회 이번주 최신 -> 어떻게 최신을 가져올지 몰루
     private let lottoAPI = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
     
+    private var recentRound: Int?
+    
     private let lottoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -264,6 +266,23 @@ class LottoViewController: UIViewController {
             switch response.result {
             case .success(let lotto):
                 self.updateView(lotto)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func getRecentRound() {
+        let url = "https://dhlottery.co.kr/common.do?method=main"
+        AF.request(url).responseString { response in
+            switch response.result {
+            case .success(let value):
+                if let range1 = value.range(of: "id=\"lottoDrwNo\">", options: [.caseInsensitive]  ),
+                   let range2 = value.range(of: "</strong>È¸ <span class=\"txt\">´çÃ·°á°ú</span> ", options: [.caseInsensitive]) {
+                    let recent = value[range1.upperBound..<range2.lowerBound]
+                    guard let recent = Int(recent) else { return }
+                    self.recentRound = recent
+                }
             case .failure(let error):
                 print(error)
             }
