@@ -23,6 +23,7 @@
 		5422F2C42C105E800093932B /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C32C105E800093932B /* MovieModel.swift */; };
 		5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C52C105F400093932B /* BoxOfficeTableViewCell.swift */; };
 		5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C72C10664E0093932B /* Date+Extension.swift */; };
+		5422F2CA2C1092C30093932B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C92C1092C30093932B /* WeatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5422F2C32C105E800093932B /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		5422F2C52C105F400093932B /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		5422F2C72C10664E0093932B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		5422F2C92C1092C30093932B /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				5422F2272C0F24C70093932B /* SignUpViewController.swift */,
 				5422F2C22C105E720093932B /* BoxOfficeView */,
 				5422F2292C0F2D970093932B /* LottoViewController.swift */,
+				5422F2C92C1092C30093932B /* WeatherViewController.swift */,
 				5422F2192C0EFA610093932B /* Assets.xcassets */,
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
 				5422F21E2C0EFA610093932B /* Info.plist */,
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5422F2C42C105E800093932B /* MovieModel.swift in Sources */,
+				5422F2CA2C1092C30093932B /* WeatherViewController.swift in Sources */,
 				5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */,
 				5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,

@@ -21,13 +21,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let signupVC = SignUpViewController()
         let boxVC = BoxOfficeViewController()
         let lottoVC = LottoViewController()
+        let weatherVC = WeatherViewController()
         
         homeVC.title = "홈"
         signupVC.title = "회원가입"
         boxVC.title = "박스오피스 조회"
         lottoVC.title = "로또 번호 조회"
+        weatherVC.title = "날씨"
         
-        tabVC.viewControllers = [homeVC, signupVC, boxVC, lottoVC]
+        tabVC.viewControllers = [homeVC, signupVC, boxVC, lottoVC, weatherVC]
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
         
