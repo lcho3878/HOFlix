@@ -36,7 +36,8 @@ class BoxOfficeViewController: UIViewController {
     
     private let boxTableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .none
+        tableView.rowHeight = 50
         return tableView
     }()
     
@@ -88,6 +89,7 @@ class BoxOfficeViewController: UIViewController {
     private func configureTableView() {
         boxTableView.delegate = self
         boxTableView.dataSource = self
+        boxTableView.register(BoxOfficeTableViewCell.self, forCellReuseIdentifier: BoxOfficeTableViewCell.reuseIdentifier)
     }
 
     private func getBoxOffice() {
@@ -118,7 +120,8 @@ extension BoxOfficeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BoxOfficeTableViewCell.reuseIdentifier, for: indexPath) as? BoxOfficeTableViewCell else { return UITableViewCell() }
+        return cell
     }
 }
 
