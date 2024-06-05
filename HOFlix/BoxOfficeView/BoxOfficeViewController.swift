@@ -43,6 +43,7 @@ class BoxOfficeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getBoxOffice()
         configreHierarchy()
         configureLayout()
         configureUI()
@@ -95,7 +96,7 @@ class BoxOfficeViewController: UIViewController {
     private func getBoxOffice() {
         let api = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
         let key = APIKey.movieAPIKey
-        let date = "20120101"
+        let date = "20240604"
         let url = api + "key=" + key + "&targetDt=" + date
         
         AF.request(url).responseDecodable(of: BoxOfficeResult.self) { response in
@@ -121,6 +122,8 @@ extension BoxOfficeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BoxOfficeTableViewCell.reuseIdentifier, for: indexPath) as? BoxOfficeTableViewCell else { return UITableViewCell() }
+        let data = movieList[indexPath.row]
+        cell.configureData(data)
         return cell
     }
 }

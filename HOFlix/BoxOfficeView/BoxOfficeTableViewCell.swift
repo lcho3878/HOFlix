@@ -54,8 +54,8 @@ class BoxOfficeTableViewCell: UITableViewCell {
     
     private func configureHierarchy() {
         contentView.addSubview(rankLabel)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(dateLabel)
+        contentView.addSubview(titleLabel)
     }
     
     private func configureLayout() {
@@ -64,19 +64,24 @@ class BoxOfficeTableViewCell: UITableViewCell {
             $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(8)
             $0.width.equalTo(40)
         }
-        
-        titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(rankLabel.snp.trailing).offset(16)
-            $0.verticalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(12)
-        }
-        
+
         dateLabel.snp.makeConstraints {
             $0.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(12)
             $0.verticalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(12)
         }
+        
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalTo(rankLabel.snp.trailing).offset(16)
+            $0.verticalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(12)
+            $0.width.equalTo(200)
+        }
     }
     
-    func configureData() {}
+    func configureData(_ data: Movie) {
+        rankLabel.text = data.rank
+        titleLabel.text = data.movieNm
+        dateLabel.text = data.openDt
+    }
     
     
     
