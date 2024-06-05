@@ -163,8 +163,7 @@ class LottoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        roundTextField.text = "1122"
-        checkButtonClicked()
+        getRecentRound()
         configureUI()
         configureSubViews()
         configureLayout()
@@ -253,8 +252,15 @@ class LottoViewController: UIViewController {
     
     @objc
     private func checkButtonClicked() {
-        guard let round = Int(roundTextField.text!), round <= 1122 else {
-            let alert = UIAlertController(title: "오류", message: "1122 이하의 숫자만 입력가능합니다.", preferredStyle: .alert)
+        guard let recent = recentRound else {
+            let alert = UIAlertController(title: "오류", message: "최신 회차 받아오기 실패", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(ok)
+            present(alert, animated: true)
+            return
+        }
+        guard let round = Int(roundTextField.text!), round <= recent else {
+            let alert = UIAlertController(title: "오류", message: "\(recent) 이하의 숫자만 입력가능합니다.", preferredStyle: .alert)
             let ok = UIAlertAction(title: "확인", style: .default)
             alert.addAction(ok)
             present(alert, animated: true)
@@ -282,6 +288,8 @@ class LottoViewController: UIViewController {
                     let recent = value[range1.upperBound..<range2.lowerBound]
                     guard let recent = Int(recent) else { return }
                     self.recentRound = recent
+                    self.roundTextField.text = String(recent)
+                    self.checkButtonClicked()
                 }
             case .failure(let error):
                 print(error)
