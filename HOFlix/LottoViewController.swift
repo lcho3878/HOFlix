@@ -175,6 +175,11 @@ class LottoViewController: UIViewController {
         configurePickerView()
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        roundTextField.endEditing(true)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         for item in lottoStackView.subviews {
