@@ -11,6 +11,12 @@ import Alamofire
 
 class BoxOfficeViewController: UIViewController {
     
+    private var yesterday: Date {
+        let today = Date()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: today)!
+        return yesterday
+    }
+    
     private var movieList: [Movie] = [] {
         didSet{
             boxTableView.reloadData()
@@ -96,7 +102,7 @@ class BoxOfficeViewController: UIViewController {
     private func getBoxOffice() {
         let api = "https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
         let key = APIKey.movieAPIKey
-        let date = "20240604"
+        let date = yesterday.string("yyyyMMdd")
         let url = api + "key=" + key + "&targetDt=" + date
         
         AF.request(url).responseDecodable(of: BoxOfficeResult.self) { response in

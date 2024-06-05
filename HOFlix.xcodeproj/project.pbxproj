@@ -22,6 +22,7 @@
 		5422F2C12C1058830093932B /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C02C1058830093932B /* UITextField+Extension.swift */; };
 		5422F2C42C105E800093932B /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C32C105E800093932B /* MovieModel.swift */; };
 		5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C52C105F400093932B /* BoxOfficeTableViewCell.swift */; };
+		5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C72C10664E0093932B /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5422F2C02C1058830093932B /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		5422F2C32C105E800093932B /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		5422F2C52C105F400093932B /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
+		5422F2C72C10664E0093932B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				5422F2C02C1058830093932B /* UITextField+Extension.swift */,
+				5422F2C72C10664E0093932B /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5422F2C42C105E800093932B /* MovieModel.swift in Sources */,
+				5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */,
 				5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
