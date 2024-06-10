@@ -30,6 +30,7 @@
 		544BE80F2C16DA1E00F2D4E9 /* UIPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */; };
 		544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8102C16E76E00F2D4E9 /* Movie.swift */; };
 		544BE8142C16EC2000F2D4E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 544BE8132C16EC2000F2D4E9 /* Kingfisher */; };
+		544BE8162C17108100F2D4E9 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8152C17108100F2D4E9 /* CreditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddingLabel.swift; sourceTree = "<group>"; };
 		544BE8102C16E76E00F2D4E9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		544BE8152C17108100F2D4E9 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
 				5422F21E2C0EFA610093932B /* Info.plist */,
 				5422F2B82C1052FB0093932B /* APIKey.swift */,
+				544BE8152C17108100F2D4E9 /* CreditViewController.swift */,
 			);
 			path = HOFlix;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				5422F2CA2C1092C30093932B /* WeatherViewController.swift in Sources */,
 				5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */,
 				544BE80F2C16DA1E00F2D4E9 /* UIPaddingLabel.swift in Sources */,
+				544BE8162C17108100F2D4E9 /* CreditViewController.swift in Sources */,
 				5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
