@@ -213,7 +213,7 @@ class TrendTableViewCell: UITableViewCell {
         movieOverviewLabel.text = data.overview
         let url = "https://image.tmdb.org/t/p/w400" + data.poster_path
         movieImageView.kf.setImage(with: URL(string: url))
-        //imageView 크기 조정 필요
+        genreLabel.text = data.genres.joined(separator: " ")
     }
 
 }
