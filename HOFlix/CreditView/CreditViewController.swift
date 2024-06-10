@@ -7,9 +7,16 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class CreditViewController: UIViewController {
+    var id: String!
     
+    private var castList: [Cast] = [] {
+        didSet {
+            contentTableView.reloadData()
+        }
+    }
 
     private let backImageView: UIImageView = {
         let view = UIImageView()
@@ -45,6 +52,7 @@ class CreditViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
+        callRequest(id)
     }
     
     private func configureUI() {
@@ -95,7 +103,25 @@ class CreditViewController: UIViewController {
         contentTableView.register(CastCell.self, forCellReuseIdentifier: CastCell.id)
     }
     
-
+    private func callRequest(_ id: String) {
+        let url = "https://api.themoviedb.org/3/movie/\(id)/credits"
+        let params: Parameters = [
+            "language" : "ko-KR"
+        ]
+        let headers: HTTPHeaders = [
+            "Authorization": APIKey.tmdbToken,
+            "accept": "application/json"
+        ]
+        AF.request(url, parameters: params, headers: headers)
+            .responseDecodable(of: CastResult.self) { response in
+            switch response.result {
+            case .success(let v):
+                self.castList = v.cast
+            case .failure(let e):
+                print(e)
+            }
+        }
+    }
 
 }
 
@@ -115,7 +141,7 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         }
         else {
-            return 10
+            return castList.count
         }
     }
     
@@ -137,9 +163,11 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastCell.id, for: indexPath) as? OverViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastCell.id, for: indexPath) as? CastCell else {
                 return UITableViewCell()
             }
+            let data = castList[indexPath.row]
+            cell.configureData(data)
             return cell
         }
     }

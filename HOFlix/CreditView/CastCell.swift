@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class CastCell: UITableViewCell {
     
@@ -14,6 +15,7 @@ class CastCell: UITableViewCell {
         let view = UIImageView()
         view.backgroundColor = .lightGray
         view.layer.cornerRadius = 8
+        view.clipsToBounds = true
         return view
     }()
     
@@ -42,6 +44,10 @@ class CastCell: UITableViewCell {
         super.init(coder: coder)
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
     private func configureHierarchy() {
         contentView.addSubview(actorImageView)
         contentView.addSubview(actorNameLabel)
@@ -64,5 +70,12 @@ class CastCell: UITableViewCell {
             $0.leading.equalTo(actorNameLabel)
             $0.top.equalTo(contentView.snp.centerY).offset(4)
         }
+    }
+    
+    func configureData(_ data: Cast) {
+        actorNameLabel.text = data.name
+        actorSubLabel.text = data.character
+        let url = "https://image.tmdb.org/t/p/w400" + (data.profile_path ?? "")
+        actorImageView.kf.setImage(with: URL(string: url))
     }
 }

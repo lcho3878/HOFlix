@@ -33,6 +33,7 @@
 		544BE8162C17108100F2D4E9 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8152C17108100F2D4E9 /* CreditViewController.swift */; };
 		544BE8192C1718DC00F2D4E9 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8182C1718DC00F2D4E9 /* CastCell.swift */; };
 		544BE81B2C17192000F2D4E9 /* OverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE81A2C17192000F2D4E9 /* OverViewCell.swift */; };
+		544BE81D2C1725C300F2D4E9 /* CastResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE81C2C1725C300F2D4E9 /* CastResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		544BE8152C17108100F2D4E9 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		544BE8182C1718DC00F2D4E9 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		544BE81A2C17192000F2D4E9 /* OverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
+		544BE81C2C1725C300F2D4E9 /* CastResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				544BE8152C17108100F2D4E9 /* CreditViewController.swift */,
 				544BE81A2C17192000F2D4E9 /* OverViewCell.swift */,
 				544BE8182C1718DC00F2D4E9 /* CastCell.swift */,
+				544BE81C2C1725C300F2D4E9 /* CastResult.swift */,
 			);
 			path = CreditView;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				5422F2B92C1052FB0093932B /* APIKey.swift in Sources */,
 				544BE8192C1718DC00F2D4E9 /* CastCell.swift in Sources */,
 				5422F2132C0EFA600093932B /* SceneDelegate.swift in Sources */,
+				544BE81D2C1725C300F2D4E9 /* CastResult.swift in Sources */,
 				544BE8082C16CE8000F2D4E9 /* TrendViewController.swift in Sources */,
 				544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */,
 			);
