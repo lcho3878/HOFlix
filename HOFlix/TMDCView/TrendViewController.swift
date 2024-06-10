@@ -7,8 +7,15 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class TrendViewController: UIViewController {
+    
+    private var movieList: [Movie] = [] {
+        didSet{
+            movieTableView.reloadData()
+        }
+    }
 
     private let movieSearchBar: UITextField = {
         let view = UITextField()
@@ -37,6 +44,7 @@ class TrendViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
+        callRequest()
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,7 +81,24 @@ class TrendViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
 
-
+    private func callRequest() {
+        let url = "https://api.themoviedb.org/3/trending/movie/day"
+        let headers = HTTPHeaders([
+            "Authorization": APIKey.tmdbToken,
+            "accept": "application/json"
+        ])
+        let param: Parameters = [
+            "language": "ko-KR"
+        ]
+        AF.request(url, parameters: param, headers: headers).responseDecodable(of: MovieResult.self) { response in
+            switch response.result {
+            case .success(let v):
+                print(v)
+            case .failure(let e):
+                print(e)
+            }
+        }
+    }
 }
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {

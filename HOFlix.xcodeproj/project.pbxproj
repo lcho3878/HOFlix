@@ -28,6 +28,7 @@
 		544BE80A2C16D22000F2D4E9 /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */; };
 		544BE80C2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */; };
 		544BE80F2C16DA1E00F2D4E9 /* UIPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */; };
+		544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8102C16E76E00F2D4E9 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddingLabel.swift; sourceTree = "<group>"; };
+		544BE8102C16E76E00F2D4E9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 			children = (
 				544BE8072C16CE8000F2D4E9 /* TrendViewController.swift */,
 				544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */,
+				544BE8102C16E76E00F2D4E9 /* Movie.swift */,
 			);
 			path = TMDCView;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				5422F2B92C1052FB0093932B /* APIKey.swift in Sources */,
 				5422F2132C0EFA600093932B /* SceneDelegate.swift in Sources */,
 				544BE8082C16CE8000F2D4E9 /* TrendViewController.swift in Sources */,
+				544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
