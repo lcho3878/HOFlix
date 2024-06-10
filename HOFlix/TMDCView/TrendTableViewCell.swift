@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class TrendTableViewCell: UITableViewCell {
     
@@ -25,10 +26,16 @@ class TrendTableViewCell: UITableViewCell {
         return lb
     }()
     
+    private let mainView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private let movieImageView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .clear
         view.clipsToBounds = true
+        view.contentMode = .scaleToFill
         return view
     }()
     
@@ -116,8 +123,9 @@ class TrendTableViewCell: UITableViewCell {
         
         contentView.addSubview(dateLabel)
         contentView.addSubview(genreLabel)
-        contentView.addSubview(movieImageView)
-        movieImageView.addSubview(movieContentView)
+        contentView.addSubview(mainView)
+        mainView.addSubview(movieImageView)
+        mainView.addSubview(movieContentView)
         movieImageView.addSubview(gradeLabel)
         movieImageView.addSubview(scoreLabel)
         movieContentView.addSubview(movieTitleLabel)
@@ -138,7 +146,7 @@ class TrendTableViewCell: UITableViewCell {
             $0.leading.trailing.equalTo(dateLabel)
         }
         
-        movieImageView.snp.makeConstraints {
+        mainView.snp.makeConstraints {
             $0.top.equalTo(genreLabel.snp.bottom).offset(8)
             $0.horizontalEdges.equalTo(contentView.safeAreaLayoutGuide).inset(8)
             $0.height.equalTo(UIScreen.main.bounds.height / 2.5)
@@ -148,6 +156,11 @@ class TrendTableViewCell: UITableViewCell {
         movieContentView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalToSuperview()
             $0.height.equalToSuperview().multipliedBy(0.3)
+        }
+        
+        movieImageView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(movieContentView.snp.top)
         }
         
         gradeLabel.snp.makeConstraints {
@@ -198,7 +211,9 @@ class TrendTableViewCell: UITableViewCell {
         scoreLabel.text = "\(String(format: "%.2f", data.vote_average))"
         movieTitleLabel.text = data.title
         movieOverviewLabel.text = data.overview
-        
+        let url = "https://image.tmdb.org/t/p/w400" + data.poster_path
+        movieImageView.kf.setImage(with: URL(string: url))
+        //imageView 크기 조정 필요
     }
 
 }
