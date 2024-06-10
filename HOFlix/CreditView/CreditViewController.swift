@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 class CreditViewController: UIViewController {
+    
 
     private let backImageView: UIImageView = {
         let view = UIImageView()
@@ -89,6 +90,8 @@ class CreditViewController: UIViewController {
     private func configureTableView() {
         contentTableView.dataSource = self
         contentTableView.delegate = self
+        contentTableView.rowHeight = UITableView.automaticDimension
+        contentTableView.register(OverViewCell.self, forCellReuseIdentifier: OverViewCell.id)
     }
     
 
@@ -116,7 +119,22 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewCell.id) as? OverViewCell else {
+                return UITableViewCell()
+            }
+            cell.delegate = self
+            return cell
+        }
+        else {
+            return UITableViewCell()
+        }
     }
     
+}
+
+extension CreditViewController: OverViewCellDelegate {
+    func updateTableView() {
+        contentTableView.reloadData()
+    }
 }

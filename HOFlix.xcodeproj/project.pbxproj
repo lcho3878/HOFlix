@@ -31,6 +31,8 @@
 		544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8102C16E76E00F2D4E9 /* Movie.swift */; };
 		544BE8142C16EC2000F2D4E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 544BE8132C16EC2000F2D4E9 /* Kingfisher */; };
 		544BE8162C17108100F2D4E9 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8152C17108100F2D4E9 /* CreditViewController.swift */; };
+		544BE8192C1718DC00F2D4E9 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8182C1718DC00F2D4E9 /* CastCell.swift */; };
+		544BE81B2C17192000F2D4E9 /* OverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE81A2C17192000F2D4E9 /* OverViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddingLabel.swift; sourceTree = "<group>"; };
 		544BE8102C16E76E00F2D4E9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		544BE8152C17108100F2D4E9 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		544BE8182C1718DC00F2D4E9 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
+		544BE81A2C17192000F2D4E9 /* OverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +107,11 @@
 				5422F2292C0F2D970093932B /* LottoViewController.swift */,
 				5422F2C92C1092C30093932B /* WeatherViewController.swift */,
 				544BE8062C16CE2F00F2D4E9 /* TMDCView */,
+				544BE8172C1718C200F2D4E9 /* CreditView */,
 				5422F2192C0EFA610093932B /* Assets.xcassets */,
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
 				5422F21E2C0EFA610093932B /* Info.plist */,
 				5422F2B82C1052FB0093932B /* APIKey.swift */,
-				544BE8152C17108100F2D4E9 /* CreditViewController.swift */,
 			);
 			path = HOFlix;
 			sourceTree = "<group>";
@@ -148,6 +152,16 @@
 				544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		544BE8172C1718C200F2D4E9 /* CreditView */ = {
+			isa = PBXGroup;
+			children = (
+				544BE8152C17108100F2D4E9 /* CreditViewController.swift */,
+				544BE81A2C17192000F2D4E9 /* OverViewCell.swift */,
+				544BE8182C1718DC00F2D4E9 /* CastCell.swift */,
+			);
+			path = CreditView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +253,7 @@
 				544BE8162C17108100F2D4E9 /* CreditViewController.swift in Sources */,
 				5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
+				544BE81B2C17192000F2D4E9 /* OverViewCell.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
 				5422F2BB2C1053D80093932B /* BoxOfficeViewController.swift in Sources */,
@@ -246,6 +261,7 @@
 				544BE80A2C16D22000F2D4E9 /* TrendTableViewCell.swift in Sources */,
 				5422F2C12C1058830093932B /* UITextField+Extension.swift in Sources */,
 				5422F2B92C1052FB0093932B /* APIKey.swift in Sources */,
+				544BE8192C1718DC00F2D4E9 /* CastCell.swift in Sources */,
 				5422F2132C0EFA600093932B /* SceneDelegate.swift in Sources */,
 				544BE8082C16CE8000F2D4E9 /* TrendViewController.swift in Sources */,
 				544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */,
