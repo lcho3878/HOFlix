@@ -92,6 +92,7 @@ class CreditViewController: UIViewController {
         contentTableView.delegate = self
         contentTableView.rowHeight = UITableView.automaticDimension
         contentTableView.register(OverViewCell.self, forCellReuseIdentifier: OverViewCell.id)
+        contentTableView.register(CastCell.self, forCellReuseIdentifier: CastCell.id)
     }
     
 
@@ -118,6 +119,15 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UITableView.automaticDimension
+        }
+        else {
+            return 80
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewCell.id) as? OverViewCell else {
@@ -127,7 +137,10 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else {
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastCell.id, for: indexPath) as? OverViewCell else {
+                return UITableViewCell()
+            }
+            return cell
         }
     }
     
