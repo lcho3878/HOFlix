@@ -17,19 +17,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let tabVC = UITabBarController()
-        let homeVC = HomeViewController()
-        let signupVC = SignUpViewController()
-        let boxVC = BoxOfficeViewController()
-        let lottoVC = LottoViewController()
-        let weatherVC = WeatherViewController()
-        
-        homeVC.title = "홈"
-        signupVC.title = "회원가입"
-        boxVC.title = "박스오피스 조회"
-        lottoVC.title = "로또 번호 조회"
-        weatherVC.title = "날씨"
-        
-        tabVC.viewControllers = [homeVC, signupVC, boxVC, lottoVC, weatherVC]
+        let trendVC = TrendViewController()
+//        let homeVC = HomeViewController()
+//        let signupVC = SignUpViewController()
+//        let boxVC = BoxOfficeViewController()
+//        let lottoVC = LottoViewController()
+//        let weatherVC = WeatherViewController()
+//        
+//        homeVC.title = "홈"
+//        signupVC.title = "회원가입"
+//        boxVC.title = "박스오피스 조회"
+//        lottoVC.title = "로또 번호 조회"
+//        weatherVC.title = "날씨"
+//        
+//        tabVC.viewControllers = [homeVC, signupVC, boxVC, lottoVC, weatherVC]
+        tabVC.viewControllers = [trendVC]
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
         
