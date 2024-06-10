@@ -8,9 +8,10 @@
 import UIKit
 import SnapKit
 import Alamofire
+import Kingfisher
 
 class CreditViewController: UIViewController {
-    var id: String!
+    var movie: MovieInfo!
     
     private var castList: [Cast] = [] {
         didSet {
@@ -52,13 +53,17 @@ class CreditViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
-        callRequest(id)
+        callRequest(movie.id)
     }
     
     private func configureUI() {
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = false
         navigationItem.title = "출연/제작"
+        
+        backImageView.kf.setImage(with: movie.backImageURL)
+        posterImageView.kf.setImage(with: movie.posterImageURL)
+        movieTitleLabel.text = movie.title
     }
     
     private func configureHierarchy() {
@@ -103,8 +108,8 @@ class CreditViewController: UIViewController {
         contentTableView.register(CastCell.self, forCellReuseIdentifier: CastCell.id)
     }
     
-    private func callRequest(_ id: String) {
-        let url = "https://api.themoviedb.org/3/movie/\(id)/credits"
+    private func callRequest(_ id: Int) {
+        let url = "https://api.themoviedb.org/3/movie/\(String(id))/credits"
         let params: Parameters = [
             "language" : "ko-KR"
         ]
@@ -160,6 +165,7 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             cell.delegate = self
+            cell.configureData(movie)
             return cell
         }
         else {

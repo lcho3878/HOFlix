@@ -128,7 +128,7 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let creditVC = CreditViewController()
-        creditVC.id = String(movieList[indexPath.row].id)
+        creditVC.movie = movieList[indexPath.row]
         navigationController?.pushViewController(creditVC, animated: true)
     }
     

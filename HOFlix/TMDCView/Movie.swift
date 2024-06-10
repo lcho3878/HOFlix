@@ -30,6 +30,7 @@ struct MovieInfo: Decodable{
     let video: Bool
     let vote_average: Double
     let vote_count: Int
+    
     var genres: [String] {
         var genres: [String] = []
         for item in genre_ids {
@@ -76,6 +77,16 @@ struct MovieInfo: Decodable{
             }
         }
         return genres
+    }
+    
+    var posterImageURL: URL? {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + poster_path) else { return nil }
+        return url
+    }
+    
+    var backImageURL: URL? {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + backdrop_path) else { return nil }
+        return url
     }
 }
 

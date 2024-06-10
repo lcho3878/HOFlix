@@ -60,6 +60,10 @@ class OverViewCell: UITableViewCell {
         }
     }
     
+    func configureData(_ data: MovieInfo) {
+        contentLabel.text = data.overview
+    }
+    
     @objc
     private func buttonClick() {
         let isMore = contentLabel.numberOfLines == 0
