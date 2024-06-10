@@ -25,6 +25,9 @@
 		5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C72C10664E0093932B /* Date+Extension.swift */; };
 		5422F2CA2C1092C30093932B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C92C1092C30093932B /* WeatherViewController.swift */; };
 		544BE8082C16CE8000F2D4E9 /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8072C16CE8000F2D4E9 /* TrendViewController.swift */; };
+		544BE80A2C16D22000F2D4E9 /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */; };
+		544BE80C2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */; };
+		544BE80F2C16DA1E00F2D4E9 /* UIPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		5422F2C72C10664E0093932B /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		5422F2C92C1092C30093932B /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		544BE8072C16CE8000F2D4E9 /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
+		544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
+		544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPaddingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		5422F20F2C0EFA600093932B /* HOFlix */ = {
 			isa = PBXGroup;
 			children = (
+				544BE80D2C16DA1600F2D4E9 /* Class */,
 				5422F2BF2C1058780093932B /* Extension */,
 				5422F2102C0EFA600093932B /* AppDelegate.swift */,
 				5422F2122C0EFA600093932B /* SceneDelegate.swift */,
@@ -102,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				5422F2C02C1058830093932B /* UITextField+Extension.swift */,
+				544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */,
 				5422F2C72C10664E0093932B /* Date+Extension.swift */,
 			);
 			path = Extension;
@@ -121,8 +129,17 @@
 			isa = PBXGroup;
 			children = (
 				544BE8072C16CE8000F2D4E9 /* TrendViewController.swift */,
+				544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */,
 			);
 			path = TMDCView;
+			sourceTree = "<group>";
+		};
+		544BE80D2C16DA1600F2D4E9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,14 +222,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				5422F2C42C105E800093932B /* MovieModel.swift in Sources */,
+				544BE80C2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift in Sources */,
 				5422F2CA2C1092C30093932B /* WeatherViewController.swift in Sources */,
 				5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */,
+				544BE80F2C16DA1E00F2D4E9 /* UIPaddingLabel.swift in Sources */,
 				5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
 				5422F2BB2C1053D80093932B /* BoxOfficeViewController.swift in Sources */,
 				5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */,
+				544BE80A2C16D22000F2D4E9 /* TrendTableViewCell.swift in Sources */,
 				5422F2C12C1058830093932B /* UITextField+Extension.swift in Sources */,
 				5422F2B92C1052FB0093932B /* APIKey.swift in Sources */,
 				5422F2132C0EFA600093932B /* SceneDelegate.swift in Sources */,

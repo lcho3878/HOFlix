@@ -36,13 +36,19 @@ class TrendViewController: UIViewController {
         configure()
         configureHierarchy()
         configureLayout()
-        movieTableView.delegate = self
-        movieTableView.dataSource = self
+        configureTableView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         movieSearchBar.underlined(1, .lightGray)
+    }
+    
+    private func configureTableView() {
+        movieTableView.delegate = self
+        movieTableView.dataSource = self
+        movieTableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.id)
+        movieTableView.rowHeight = UITableView.automaticDimension
     }
 
     private func configureHierarchy() {
@@ -59,7 +65,7 @@ class TrendViewController: UIViewController {
         
         movieTableView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
-            $0.top.equalTo(movieSearchBar.snp.bottom)
+            $0.top.equalTo(movieSearchBar.snp.bottom).offset(8)
         }
     }
     
@@ -76,7 +82,8 @@ extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.id, for: indexPath) as? TrendTableViewCell else { return UITableViewCell() }
+        return cell
     }
     
     
