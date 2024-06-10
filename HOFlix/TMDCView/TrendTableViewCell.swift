@@ -70,7 +70,7 @@ class TrendTableViewCell: UITableViewCell {
         return lb
     }()
     
-    private let movieCaseLabel: UILabel = {
+    private let movieOverviewLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Kento Yamazaki, Tao Tsuchiya, Nijiro Murakami asdfasdfasdfasdf"
         lb.textColor = .lightGray
@@ -121,7 +121,7 @@ class TrendTableViewCell: UITableViewCell {
         movieImageView.addSubview(gradeLabel)
         movieImageView.addSubview(scoreLabel)
         movieContentView.addSubview(movieTitleLabel)
-        movieContentView.addSubview(movieCaseLabel)
+        movieContentView.addSubview(movieOverviewLabel)
         movieContentView.addSubview(lineView)
         movieContentView.addSubview(detailLabel)
         movieContentView.addSubview(detailImageView)
@@ -168,21 +168,21 @@ class TrendTableViewCell: UITableViewCell {
             
         }
         
-        movieCaseLabel.snp.makeConstraints {
+        movieOverviewLabel.snp.makeConstraints {
             $0.top.equalTo(movieTitleLabel.snp.bottom).offset(2)
             $0.leading.equalTo(movieTitleLabel)
             $0.centerX.equalToSuperview()
         }
         
         lineView.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(movieCaseLabel)
-            $0.top.equalTo(movieCaseLabel.snp.bottom).offset(16)
+            $0.horizontalEdges.equalTo(movieOverviewLabel)
+            $0.top.equalTo(movieOverviewLabel.snp.bottom).offset(16)
             $0.height.equalTo(1)
         }
         
         detailLabel.snp.makeConstraints {
             $0.bottom.equalToSuperview()
-            $0.leading.equalTo(movieCaseLabel)
+            $0.leading.equalTo(movieOverviewLabel)
         }
         
         detailImageView.snp.makeConstraints {
@@ -190,6 +190,14 @@ class TrendTableViewCell: UITableViewCell {
             $0.trailing.equalTo(lineView)
             $0.bottom.equalToSuperview()
         }
+        
+    }
+    
+    func configureData(_ data: MovieInfo) {
+        dateLabel.text = data.release_date
+        scoreLabel.text = "\(String(format: "%.2f", data.vote_average))"
+        movieTitleLabel.text = data.title
+        movieOverviewLabel.text = data.overview
         
     }
 

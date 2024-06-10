@@ -11,7 +11,7 @@ import Alamofire
 
 class TrendViewController: UIViewController {
     
-    private var movieList: [Movie] = [] {
+    private var movieList: [MovieInfo] = [] {
         didSet{
             movieTableView.reloadData()
         }
@@ -92,10 +92,10 @@ class TrendViewController: UIViewController {
         ]
         AF.request(url, parameters: param, headers: headers).responseDecodable(of: MovieResult.self) { response in
             switch response.result {
-            case .success(let v):
-                print(v)
-            case .failure(let e):
-                print(e)
+            case .success(let value):
+                self.movieList = value.results
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -103,11 +103,13 @@ class TrendViewController: UIViewController {
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendTableViewCell.id, for: indexPath) as? TrendTableViewCell else { return UITableViewCell() }
+        let data = movieList[indexPath.row]
+        cell.configureData(data)
         return cell
     }
     
