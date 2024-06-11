@@ -7,8 +7,15 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class SearchViewController: UIViewController {
+    
+    private var searchList: [MovieInfo] = []{
+        didSet{
+            searchCollectionView.reloadData()
+        }
+    }
     
     private let searchBar: UISearchBar = {
         let view = UISearchBar()
@@ -42,12 +49,17 @@ class SearchViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureCollectionView()
+        configureSearchBar()
     }
-    
+
     private func configureCollectionView() {
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.id)
+    }
+    
+    private func configureSearchBar() {
+        searchBar.delegate = self
     }
     
     private func configureHierarchy() {
@@ -66,8 +78,32 @@ class SearchViewController: UIViewController {
         }
     }
     
+}
 
-
+extension SearchViewController {
+    
+    private func callRequest() {
+        let url = "https://api.themoviedb.org/3/search/movie"
+        let params: Parameters = [
+            "query": "게임",
+            "language": "ko-KR",
+            "page": 1
+        ]
+        let headers: HTTPHeaders = [
+            "Authorization": APIKey.tmdbToken,
+            "accept": "application/json"
+        ]
+        AF.request(url, parameters: params, headers: headers)
+            .responseDecodable(of: SearchResult.self) { response in
+                switch response.result {
+                case .success(let v):
+                    self.searchList = v.results
+                case .failure(let e):
+                    print(e)
+                }
+            }
+    }
+    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -80,6 +116,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.id, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
         cell.backgroundColor = .blue
         return cell
+    }
+    
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        callRequest()
     }
     
 }

@@ -26,6 +26,7 @@
 		5422F2CA2C1092C30093932B /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5422F2C92C1092C30093932B /* WeatherViewController.swift */; };
 		542E7CC12C183DD20085C355 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E7CC02C183DD20085C355 /* SearchViewController.swift */; };
 		542E7CC42C1842D90085C355 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E7CC32C1842D90085C355 /* SearchCollectionViewCell.swift */; };
+		542E7CC62C1849030085C355 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E7CC52C1849030085C355 /* SearchResult.swift */; };
 		544BE8082C16CE8000F2D4E9 /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8072C16CE8000F2D4E9 /* TrendViewController.swift */; };
 		544BE80A2C16D22000F2D4E9 /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */; };
 		544BE80C2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */; };
@@ -58,6 +59,7 @@
 		5422F2C92C1092C30093932B /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		542E7CC02C183DD20085C355 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		542E7CC32C1842D90085C355 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		542E7CC52C1849030085C355 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		544BE8072C16CE8000F2D4E9 /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
 		544BE8092C16D22000F2D4E9 /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		544BE80B2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				542E7CC02C183DD20085C355 /* SearchViewController.swift */,
 				542E7CC32C1842D90085C355 /* SearchCollectionViewCell.swift */,
+				542E7CC52C1849030085C355 /* SearchResult.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
 				544BE81B2C17192000F2D4E9 /* OverViewCell.swift in Sources */,
 				5422F2152C0EFA600093932B /* HomeViewController.swift in Sources */,
+				542E7CC62C1849030085C355 /* SearchResult.swift in Sources */,
 				542E7CC42C1842D90085C355 /* SearchCollectionViewCell.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
 				5422F2BB2C1053D80093932B /* BoxOfficeViewController.swift in Sources */,
