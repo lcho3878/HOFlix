@@ -19,6 +19,12 @@ class SearchViewController: UIViewController {
         }
     }
     
+    private var searchResult = SearchResult(page: 1, results: [], total_pages: 0, total_results: 0) {
+        didSet{
+            searchCollectionView.reloadData()
+        }
+    }
+    
     private let searchBar: UISearchBar = {
         let view = UISearchBar()
         view.placeholder = "게임, 시리즈, 영화를 검색하세요..."
@@ -92,7 +98,6 @@ extension SearchViewController {
             "language": "ko-KR",
             "page": page
         ]
-        print(#function, page)
         let headers: HTTPHeaders = [
             "Authorization": APIKey.tmdbToken,
             "accept": "application/json"
@@ -100,12 +105,12 @@ extension SearchViewController {
         AF.request(url, parameters: params, headers: headers)
             .responseDecodable(of: SearchResult.self) { response in
                 switch response.result {
-                case .success(let v):
+                case .success(let result):
                     if self.page == 1 {
-                        self.searchList = v.results
+                        self.searchResult = result
                     }
                     else {
-                        self.searchList.append(contentsOf: v.results)
+                        self.searchResult.results.append(contentsOf: result.results)
                     }
                     
                 case .failure(let e):
@@ -119,12 +124,12 @@ extension SearchViewController {
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchList.count
+        return searchResult.results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.id, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
-        let data = searchList[indexPath.item]
+        let data = searchResult.results[indexPath.item]
         cell.configureData(data)
         return cell
     }
@@ -143,10 +148,9 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for item in indexPaths {
-            if searchList.count - 2 == item.row {
+            if searchResult.results.count - 2 == item.row && searchResult.total_pages > page {
                 page += 1
                 callRequest(searchBar.searchTextField.text!)
-                print(item.row, page)
             }
         }
     }
