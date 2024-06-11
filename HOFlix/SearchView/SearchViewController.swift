@@ -28,7 +28,7 @@ class SearchViewController: UIViewController {
     
     private let searchCollectionView: UICollectionView = {
         let spacing: CGFloat = 4
-        let width = UIScreen.main.bounds.width - (2 * spacing)
+        let width = UIScreen.main.bounds.width - (5 * spacing)
         let height = UIScreen.main.bounds.height - (3 * spacing)
         let layout = UICollectionViewFlowLayout()
         
@@ -36,10 +36,10 @@ class SearchViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .lightGray
-        
+        cv.backgroundColor = .systemBackground
         return cv
     }()
     

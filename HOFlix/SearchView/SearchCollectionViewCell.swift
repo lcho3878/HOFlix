@@ -16,6 +16,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
     private let mainImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
         return view
     }()
     
