@@ -87,7 +87,7 @@ extension SearchViewController {
         let params: Parameters = [
             "query": "게임",
             "language": "ko-KR",
-            "page": 1
+            "page": 2
         ]
         let headers: HTTPHeaders = [
             "Authorization": APIKey.tmdbToken,
@@ -109,12 +109,13 @@ extension SearchViewController {
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return searchList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.id, for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
-        cell.backgroundColor = .blue
+        let data = searchList[indexPath.item]
+        cell.configureData(data)
         return cell
     }
     

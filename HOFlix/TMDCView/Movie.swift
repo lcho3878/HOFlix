@@ -15,11 +15,11 @@ struct MovieResult: Decodable {
 }
 
 struct MovieInfo: Decodable{
-    let backdrop_path: String
+    let backdrop_path: String?
     let id: Int
     let original_title: String
     let overview: String
-    let poster_path: String
+    let poster_path: String?
     let media_type: String?
     let adult: Bool
     let title: String
@@ -80,12 +80,12 @@ struct MovieInfo: Decodable{
     }
     
     var posterImageURL: URL? {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + poster_path) else { return nil }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + (poster_path ?? "")) else { return nil }
         return url
     }
     
     var backImageURL: URL? {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + backdrop_path) else { return nil }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + (backdrop_path ?? "")) else { return nil }
         return url
     }
 }
