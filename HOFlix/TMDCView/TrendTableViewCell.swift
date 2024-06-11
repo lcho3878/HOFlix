@@ -211,8 +211,7 @@ class TrendTableViewCell: UITableViewCell {
         scoreLabel.text = "\(String(format: "%.2f", data.vote_average))"
         movieTitleLabel.text = data.title
         movieOverviewLabel.text = data.overview
-        let url = "https://image.tmdb.org/t/p/w400" + data.poster_path
-        movieImageView.kf.setImage(with: URL(string: url))
+        movieImageView.kf.setImage(with: data.posterImageURL)
         genreLabel.text = data.genres.joined(separator: " ")
     }
 

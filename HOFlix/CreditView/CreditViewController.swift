@@ -137,31 +137,20 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 { return "OverView"}
-        else { return "Cast" }
+        return section == 0 ? "OverView" : "Cast"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
-        else {
-            return castList.count
-        }
+        return section == 0 ? 1 : castList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UITableView.automaticDimension
-        }
-        else {
-            return 80
-        }
+        return indexPath.section == 0 ? UITableView.automaticDimension : 80
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewCell.id) as? OverViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: OverViewCell.id, for: indexPath) as? OverViewCell else {
                 return UITableViewCell()
             }
             cell.delegate = self
