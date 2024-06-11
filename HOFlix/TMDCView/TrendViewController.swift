@@ -108,6 +108,10 @@ class TrendViewController: UIViewController {
         }
     }
     
+    private func callRequest(_ text: String) {
+        
+    }
+    
     @objc
     private func buttonclick() {
         print(#function)

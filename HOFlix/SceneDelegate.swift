@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let trendVC = TrendViewController()
         let trendNav = UINavigationController(rootViewController: trendVC)
         trendNav.isNavigationBarHidden = true
+        let searchVC = SearchViewController()
 //        let homeVC = HomeViewController()
 //        let signupVC = SignUpViewController()
 //        let boxVC = BoxOfficeViewController()
@@ -33,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        weatherVC.title = "날씨"
 //        
 //        tabVC.viewControllers = [homeVC, signupVC, boxVC, lottoVC, weatherVC]
-        tabVC.viewControllers = [trendNav]
+        tabVC.viewControllers = [searchVC,trendNav]
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
         
