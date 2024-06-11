@@ -9,7 +9,7 @@ import Foundation
 
 struct SearchResult: Decodable {
     let page: Int
-    let results: [MovieInfo]
+    var results: [MovieInfo]
     let total_pages: Int
     let total_results: Int
 }

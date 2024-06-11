@@ -11,6 +11,8 @@ import Alamofire
 
 class SearchViewController: UIViewController {
     
+    private var page = 1
+    
     private var searchList: [MovieInfo] = []{
         didSet{
             searchCollectionView.reloadData()
@@ -55,6 +57,7 @@ class SearchViewController: UIViewController {
     private func configureCollectionView() {
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
+        searchCollectionView.prefetchDataSource = self
         searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.id)
     }
     
@@ -82,13 +85,14 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController {
     
-    private func callRequest() {
+    private func callRequest(_ query: String) {
         let url = "https://api.themoviedb.org/3/search/movie"
         let params: Parameters = [
-            "query": "게임",
+            "query": query,
             "language": "ko-KR",
-            "page": 2
+            "page": page
         ]
+        print(#function, page)
         let headers: HTTPHeaders = [
             "Authorization": APIKey.tmdbToken,
             "accept": "application/json"
@@ -97,7 +101,13 @@ extension SearchViewController {
             .responseDecodable(of: SearchResult.self) { response in
                 switch response.result {
                 case .success(let v):
-                    self.searchList = v.results
+                    if self.page == 1 {
+                        self.searchList = v.results
+                    }
+                    else {
+                        self.searchList.append(contentsOf: v.results)
+                    }
+                    
                 case .failure(let e):
                     print(e)
                 }
@@ -124,7 +134,22 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        callRequest()
+        self.page = 1
+        callRequest(searchBar.searchTextField.text!)
     }
+    
+}
+
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for item in indexPaths {
+            if searchList.count - 2 == item.row {
+                page += 1
+                callRequest(searchBar.searchTextField.text!)
+                print(item.row, page)
+            }
+        }
+    }
+    
     
 }
