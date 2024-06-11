@@ -108,6 +108,8 @@ extension SearchViewController {
                 case .success(let result):
                     if self.page == 1 {
                         self.searchResult = result
+                        guard !self.searchResult.results.isEmpty else { return }
+                        self.searchCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
                     }
                     else {
                         self.searchResult.results.append(contentsOf: result.results)
