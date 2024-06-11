@@ -212,7 +212,7 @@ class TrendTableViewCell: UITableViewCell {
         movieTitleLabel.text = data.title
         movieOverviewLabel.text = data.overview
         movieImageView.kf.setImage(with: data.posterImageURL)
-        genreLabel.text = data.genres.joined(separator: " ")
+        genreLabel.text = data.genres
     }
 
 }

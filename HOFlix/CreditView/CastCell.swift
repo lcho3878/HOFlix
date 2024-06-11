@@ -75,7 +75,6 @@ class CastCell: UITableViewCell {
     func configureData(_ data: Cast) {
         actorNameLabel.text = data.name
         actorSubLabel.text = data.character
-        let url = "https://image.tmdb.org/t/p/w400" + (data.profile_path ?? "")
-        actorImageView.kf.setImage(with: URL(string: url))
+        actorImageView.kf.setImage(with: data.profileImageURL)
     }
 }

@@ -31,7 +31,7 @@ struct MovieInfo: Decodable{
     let vote_average: Double
     let vote_count: Int
     
-    var genres: [String] {
+    var genres: String {
         var genres: [String] = []
         for item in genre_ids {
             switch item {
@@ -76,7 +76,7 @@ struct MovieInfo: Decodable{
             default: break
             }
         }
-        return genres
+        return genres.joined(separator: " ")
     }
     
     var posterImageURL: URL? {

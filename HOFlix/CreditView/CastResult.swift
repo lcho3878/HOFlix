@@ -25,4 +25,10 @@ struct Cast: Decodable {
     let character: String
     let credit_id: String
     let order: Int
+    
+    var profileImageURL: URL? {
+        guard profile_path != nil else { return nil }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + profile_path!) else { return nil }
+        return url
+    }
 }
