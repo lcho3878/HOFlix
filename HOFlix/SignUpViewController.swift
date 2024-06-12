@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController {
     private lazy var locationTextField = customTextField("위치")
     private lazy var codeTextField = customTextField("추천 코드 입력")
     
-    private let signupButton: UIButton = {
+    private lazy var signupButton: UIButton = {
         let button = UIButton()
         button.setTitle("회원 가입", for: .normal)
         button.setTitleColor(.black, for: .normal)

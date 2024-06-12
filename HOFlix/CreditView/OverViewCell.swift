@@ -17,7 +17,7 @@ class OverViewCell: UITableViewCell {
     
     private var isMore = false
     
-    private lazy var contentLabel: UILabel = {
+    private let contentLabel: UILabel = {
         let lb = UILabel()
         lb.text = "어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구"
         lb.font = .systemFont(ofSize: 15)
@@ -25,7 +25,7 @@ class OverViewCell: UITableViewCell {
         return lb
     }()
     
-    private let moreButton: UIButton = {
+    private lazy var moreButton: UIButton = {
         let bt = UIButton()
         bt.setImage(UIImage(systemName: "chevron.down")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
         bt.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)

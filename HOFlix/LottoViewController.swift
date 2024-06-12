@@ -154,7 +154,7 @@ class LottoViewController: UIViewController {
         return textField
     }()
     
-    private let checkButton: UIButton = {
+    private lazy var checkButton: UIButton = {
         let button = UIButton()
         button.setTitle("조회하기", for: .normal)
         button.backgroundColor = .lightGray

@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .lightGray
         return view
     }()
-    private let playButton: UIButton = {
+    private lazy var playButton: UIButton = {
         let button = UIButton()
         button.setTitle("재생", for: .normal)
         button.setImage(UIImage(systemName: "play.fill")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         button.addTarget(self, action: #selector(playButtonClicked), for: .touchUpInside)
         return button
     }()
-    private let favoriteButton: UIButton = {
+    private lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.setTitle("내가 찜한 리스트", for: .normal)
         button.setImage(UIImage(systemName: "plus")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)

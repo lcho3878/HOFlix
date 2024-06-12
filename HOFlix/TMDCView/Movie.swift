@@ -85,7 +85,7 @@ struct MovieInfo: Decodable{
     }
     
     var backImageURL: URL? {
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w400" + (backdrop_path ?? "")) else { return nil }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500" + (backdrop_path ?? "")) else { return nil }
         return url
     }
 }

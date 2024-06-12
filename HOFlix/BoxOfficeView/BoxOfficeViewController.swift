@@ -30,7 +30,7 @@ class BoxOfficeViewController: UIViewController {
         return view
     }()
     
-    private let searchButton: UIButton = {
+    private lazy var searchButton: UIButton = {
         let button = UIButton()
         button.setTitle("검색", for: .normal)
         button.setTitleColor(.black, for: .normal)

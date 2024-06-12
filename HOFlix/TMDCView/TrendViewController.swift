@@ -17,7 +17,7 @@ class TrendViewController: UIViewController {
         }
     }
 
-    private let movieSearchBar: UITextField = {
+    private lazy var movieSearchBar: UITextField = {
         let view = UITextField()
         let left = UIButton()
         left.setImage(UIImage(systemName: "list.bullet"), for: .normal)

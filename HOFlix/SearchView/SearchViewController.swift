@@ -13,12 +13,6 @@ class SearchViewController: UIViewController {
     
     private var page = 1
     
-    private var searchList: [MovieInfo] = []{
-        didSet{
-            searchCollectionView.reloadData()
-        }
-    }
-    
     private var searchResult = SearchResult(page: 1, results: [], total_pages: 0, total_results: 0) {
         didSet{
             searchCollectionView.reloadData()
