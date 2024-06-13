@@ -27,6 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let lottoVC = LottoViewController()
 //        let weatherVC = WeatherViewController()
 //        
+        searchVC.title = "검색"
+        searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        trendVC.title = "트렌드"
+        trendVC.tabBarItem.image = UIImage(systemName: "chart.xyaxis.line")
 //        homeVC.title = "홈"
 //        signupVC.title = "회원가입"
 //        boxVC.title = "박스오피스 조회"
