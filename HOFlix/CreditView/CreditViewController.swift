@@ -94,6 +94,7 @@ class CreditViewController: UIViewController {
         contentTableView.snp.makeConstraints {
             $0.top.equalTo(backImageView.snp.bottom).offset(8)
             $0.horizontalEdges.bottom.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         
