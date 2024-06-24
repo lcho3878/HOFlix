@@ -188,7 +188,15 @@ extension CreditViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let data = collectionView == recommendMovieCollectionView ? recommendList[indexPath.row] : similarList[indexPath.row]
         cell.configureDate(data)
         return cell
-
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data: MovieInfo
+        let index = indexPath.row
+        data = collectionView == recommendMovieCollectionView ? recommendList[index] : similarList[index]
+        let credicVC = CreditViewController()
+        credicVC.movie = data
+        navigationController?.pushViewController(credicVC, animated: true)
     }
     
 }
