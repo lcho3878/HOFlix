@@ -40,7 +40,7 @@ class TrendViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configureUI()
         configureHierarchy()
         configureLayout()
         configureTableView()
@@ -55,13 +55,6 @@ class TrendViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         movieSearchBar.underlined(1, .lightGray)
-    }
-    
-    private func configureTableView() {
-        movieTableView.delegate = self
-        movieTableView.dataSource = self
-        movieTableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.id)
-        movieTableView.rowHeight = UITableView.automaticDimension
     }
 
     private func configureHierarchy() {
@@ -82,18 +75,23 @@ class TrendViewController: UIViewController {
         }
     }
     
-    private func configure() {
+    private func configureUI() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.tintColor = .black
         navigationItem.backButtonDisplayMode = .minimal
     }
+    
+}
 
+extension TrendViewController {
     private func callRequest() {
         TMDBManager.shared.callTrendRequest {
             self.movieList = $0.results
         }
     }
-    
+}
+
+extension TrendViewController {
     @objc
     private func buttonclick() {
         print(#function)
@@ -101,6 +99,14 @@ class TrendViewController: UIViewController {
 }
 
 extension TrendViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    private func configureTableView() {
+        movieTableView.delegate = self
+        movieTableView.dataSource = self
+        movieTableView.register(TrendTableViewCell.self, forCellReuseIdentifier: TrendTableViewCell.id)
+        movieTableView.rowHeight = UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }

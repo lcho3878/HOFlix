@@ -26,8 +26,27 @@ class TMDBManager {
         AF.request(url, parameters: param, headers: headers).responseDecodable(of: MovieResult.self) { response in
             switch response.result {
             case .success(let value):
-//                self.movieList = value.results
                 completionHandler(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func callCastRequest(_ id: Int, completionHander: @escaping (CastResult) -> Void) {
+        let url = URL.credits.rawValue + String(id) + "/credits"
+        let params: Parameters = [
+            APIParameters.language.rawValue : APIParameters.language.value
+        ]
+        let headers: HTTPHeaders = [
+            APIHeaders.Authorization.rawValue: APIHeaders.Authorization.value,
+            APIHeaders.accept.rawValue: APIHeaders.accept.value
+        ]
+        AF.request(url, parameters: params, headers: headers)
+            .responseDecodable(of: CastResult.self) { response in
+            switch response.result {
+            case .success(let value):
+                completionHander(value)
             case .failure(let error):
                 print(error)
             }
@@ -36,10 +55,11 @@ class TMDBManager {
     
     enum URL: String {
         case trending = "https://api.themoviedb.org/3/trending/movie/day"
+        case credits = "https://api.themoviedb.org/3/movie/"
     }
     
     enum APIParameters: String {
-        case language = "ko-KR"
+        case language
         var value: String {
             switch self {
             case .language:

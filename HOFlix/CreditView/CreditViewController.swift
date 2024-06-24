@@ -20,31 +20,31 @@ class CreditViewController: UIViewController {
     }
 
     private let backImageView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .lightGray
-        view.contentMode = .scaleAspectFill
-        return view
+        let backImageView = UIImageView()
+        backImageView.backgroundColor = .lightGray
+        backImageView.contentMode = .scaleAspectFill
+        return backImageView
     }()
     
     private let movieTitleLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "Squid Game"
-        lb.textColor = .white
-        lb.textAlignment = .center
-        lb.font = .boldSystemFont(ofSize: 20)
-        return lb
+        let movieTitleLabel = UILabel()
+        movieTitleLabel.text = "Squid Game"
+        movieTitleLabel.textColor = .white
+        movieTitleLabel.textAlignment = .center
+        movieTitleLabel.font = .boldSystemFont(ofSize: 20)
+        return movieTitleLabel
     }()
     
     private let posterImageView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .white
-        view.contentMode = .scaleAspectFill
-        return view
+        let posterImageView = UIImageView()
+        posterImageView.backgroundColor = .white
+        posterImageView.contentMode = .scaleAspectFill
+        return posterImageView
     }()
     
     private let contentTableView: UITableView = {
-        let tb = UITableView()
-        return tb
+        let contentTableView = UITableView()
+        return contentTableView
     }()
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class CreditViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
-        callRequest(movie.id)
+        callRequests()
     }
     
     private func configureUI() {
@@ -96,10 +96,20 @@ class CreditViewController: UIViewController {
             $0.horizontalEdges.bottom.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
-        
-        
+ 
     }
+
+}
+
+extension CreditViewController {
+    private func callRequests() {
+        TMDBManager.shared.callCastRequest(movie.id) {
+            self.castList = $0.cast
+        }
+    }
+}
+
+extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func configureTableView() {
         contentTableView.dataSource = self
@@ -108,30 +118,6 @@ class CreditViewController: UIViewController {
         contentTableView.register(OverViewCell.self, forCellReuseIdentifier: OverViewCell.id)
         contentTableView.register(CastCell.self, forCellReuseIdentifier: CastCell.id)
     }
-    
-    private func callRequest(_ id: Int) {
-        let url = "https://api.themoviedb.org/3/movie/\(String(id))/credits"
-        let params: Parameters = [
-            "language" : "ko-KR"
-        ]
-        let headers: HTTPHeaders = [
-            "Authorization": APIKey.tmdbToken,
-            "accept": "application/json"
-        ]
-        AF.request(url, parameters: params, headers: headers)
-            .responseDecodable(of: CastResult.self) { response in
-            switch response.result {
-            case .success(let v):
-                self.castList = v.cast
-            case .failure(let e):
-                print(e)
-            }
-        }
-    }
-
-}
-
-extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
