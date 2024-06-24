@@ -11,8 +11,6 @@ import Kingfisher
 
 class SearchCollectionViewCell: UICollectionViewCell {
     
-    static let id = "SearchCollectionViewCell"
-    
     private let mainImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill

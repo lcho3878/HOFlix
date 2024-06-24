@@ -42,6 +42,27 @@ class CreditViewController: UIViewController {
         return posterImageView
     }()
     
+    private let layout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let n: CGFloat = 5
+        let spacing: CGFloat = 8
+        let width = (UIScreen.main.bounds.width - (n - 1) * spacing) / n
+        layout.itemSize = CGSize(width: width, height: 100)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+        return layout
+    }()
+    
+    private lazy var recommendMovieCollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return cv
+    }()
+    
+    private lazy var similarMovieCollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return cv
+    }()
+    
     private let contentTableView: UITableView = {
         let contentTableView = UITableView()
         return contentTableView
@@ -52,6 +73,7 @@ class CreditViewController: UIViewController {
         configureUI()
         configureHierarchy()
         configureLayout()
+        configureCollectionView()
         configureTableView()
         callRequests()
     }
@@ -70,6 +92,8 @@ class CreditViewController: UIViewController {
         view.addSubview(backImageView)
         backImageView.addSubview(movieTitleLabel)
         backImageView.addSubview(posterImageView)
+        view.addSubview(recommendMovieCollectionView)
+        view.addSubview(similarMovieCollectionView)
         view.addSubview(contentTableView)
     }
     
@@ -91,9 +115,21 @@ class CreditViewController: UIViewController {
             $0.width.equalTo(backImageView).dividedBy(4)
         }
         
-        contentTableView.snp.makeConstraints {
+        recommendMovieCollectionView.snp.makeConstraints {
             $0.top.equalTo(backImageView.snp.bottom).offset(8)
-            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(100)
+        }
+        
+        similarMovieCollectionView.snp.makeConstraints {
+            $0.top.equalTo(recommendMovieCollectionView.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(100)
+        }
+        
+        contentTableView.snp.makeConstraints {
+            $0.top.equalTo(similarMovieCollectionView.snp.bottom).offset(8)
+            $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
  
@@ -107,6 +143,35 @@ extension CreditViewController {
             self.castList = $0.cast
         }
     }
+}
+
+extension CreditViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    private func configureCollectionView() {
+        recommendMovieCollectionView.delegate = self
+        recommendMovieCollectionView.dataSource = self
+        recommendMovieCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.id)
+        similarMovieCollectionView.delegate = self
+        similarMovieCollectionView.dataSource = self
+        similarMovieCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.id)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == recommendMovieCollectionView {
+            return 4
+        }
+        else {
+            return 10
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.id, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell () }
+        cell.backgroundColor = .lightGray
+        return cell
+
+    }
+    
 }
 
 extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
