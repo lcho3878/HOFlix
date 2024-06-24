@@ -36,6 +36,7 @@
 		544BE8192C1718DC00F2D4E9 /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE8182C1718DC00F2D4E9 /* CastCell.swift */; };
 		544BE81B2C17192000F2D4E9 /* OverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE81A2C17192000F2D4E9 /* OverViewCell.swift */; };
 		544BE81D2C1725C300F2D4E9 /* CastResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE81C2C1725C300F2D4E9 /* CastResult.swift */; };
+		54A1FC972C2967D00088793F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FC962C2967D00088793F /* TMDBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		544BE8182C1718DC00F2D4E9 /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
 		544BE81A2C17192000F2D4E9 /* OverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
 		544BE81C2C1725C300F2D4E9 /* CastResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResult.swift; sourceTree = "<group>"; };
+		54A1FC962C2967D00088793F /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		5422F20F2C0EFA600093932B /* HOFlix */ = {
 			isa = PBXGroup;
 			children = (
+				54A1FC952C2967C40088793F /* Manager */,
 				54A1FC942C2967330088793F /* Resource */,
 				544BE80D2C16DA1600F2D4E9 /* Class */,
 				5422F2BF2C1058780093932B /* Extension */,
@@ -187,6 +190,14 @@
 				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		54A1FC952C2967C40088793F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				54A1FC962C2967D00088793F /* TMDBManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 				5422F2132C0EFA600093932B /* SceneDelegate.swift in Sources */,
 				544BE81D2C1725C300F2D4E9 /* CastResult.swift in Sources */,
 				544BE8082C16CE8000F2D4E9 /* TrendViewController.swift in Sources */,
+				54A1FC972C2967D00088793F /* TMDBManager.swift in Sources */,
 				544BE8112C16E76E00F2D4E9 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

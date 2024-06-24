@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Alamofire
 
 class TrendViewController: UIViewController {
     
@@ -18,25 +17,25 @@ class TrendViewController: UIViewController {
     }
 
     private lazy var movieSearchBar: UITextField = {
-        let view = UITextField()
-        let left = UIButton()
-        left.setImage(UIImage(systemName: "list.bullet"), for: .normal)
-        left.addTarget(self, action: #selector(buttonclick), for: .touchUpInside)
-        view.leftView = left
-        view.leftViewMode = .always
+        let movieSearchBar = UITextField()
+        let leftButton = UIButton()
+        leftButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
+        leftButton.addTarget(self, action: #selector(buttonclick), for: .touchUpInside)
+        movieSearchBar.leftView = leftButton
+        movieSearchBar.leftViewMode = .always
         
-        let right = UIButton()
-        right.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        view.rightView = right
-        view.rightViewMode = .always
+        let rightButton = UIButton()
+        rightButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        movieSearchBar.rightView = rightButton
+        movieSearchBar.rightViewMode = .always
         
-        return view
+        return movieSearchBar
     }()
     
     private let movieTableView: UITableView = {
-        let tb = UITableView()
-        tb.backgroundColor = .lightGray
-        return tb
+        let movieTableView = UITableView()
+        movieTableView.backgroundColor = .lightGray
+        return movieTableView
     }()
     
     override func viewDidLoad() {
@@ -90,26 +89,9 @@ class TrendViewController: UIViewController {
     }
 
     private func callRequest() {
-        let url = "https://api.themoviedb.org/3/trending/movie/day"
-        let headers = HTTPHeaders([
-            "Authorization": APIKey.tmdbToken,
-            "accept": "application/json"
-        ])
-        let param: Parameters = [
-            "language": "ko-KR"
-        ]
-        AF.request(url, parameters: param, headers: headers).responseDecodable(of: MovieResult.self) { response in
-            switch response.result {
-            case .success(let value):
-                self.movieList = value.results
-            case .failure(let error):
-                print(error)
-            }
+        TMDBManager.shared.callTrendRequest {
+            self.movieList = $0.results
         }
-    }
-    
-    private func callRequest(_ text: String) {
-        
     }
     
     @objc
