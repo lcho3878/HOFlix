@@ -17,28 +17,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let tabVC = UITabBarController()
-//        let trendVC = TrendViewController()
-//        let trendNav = UINavigationController(rootViewController: trendVC)
-//        trendNav.isNavigationBarHidden = true
-//        let searchVC = SearchViewController()
+        let trendVC = TrendViewController()
+        let trendNav = UINavigationController(rootViewController: trendVC)
+        trendNav.isNavigationBarHidden = true
+        let searchVC = SearchViewController()
 //        let homeVC = HomeViewController()
 //        let signupVC = SignUpViewController()
 //        let boxVC = BoxOfficeViewController()
 //        let lottoVC = LottoViewController()
-        let weatherVC = WeatherViewController()
-//        
-//        searchVC.title = "검색"
-//        searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-//        trendVC.title = "트렌드"
-//        trendVC.tabBarItem.image = UIImage(systemName: "chart.xyaxis.line")
+        searchVC.title = "검색"
+        searchVC.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        trendVC.title = "트렌드"
+        trendVC.tabBarItem.image = UIImage(systemName: "chart.xyaxis.line")
 //        homeVC.title = "홈"
 //        signupVC.title = "회원가입"
 //        boxVC.title = "박스오피스 조회"
 //        lottoVC.title = "로또 번호 조회"
-        weatherVC.title = "날씨"
-//        
-        tabVC.viewControllers = [weatherVC]
-//        tabVC.viewControllers = [searchVC,trendNav]
+        tabVC.viewControllers = [searchVC,trendNav]
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
         
