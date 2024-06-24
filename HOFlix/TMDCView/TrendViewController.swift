@@ -34,7 +34,7 @@ class TrendViewController: UIViewController {
     
     private let movieTableView: UITableView = {
         let movieTableView = UITableView()
-        movieTableView.backgroundColor = .lightGray
+
         return movieTableView
     }()
     
