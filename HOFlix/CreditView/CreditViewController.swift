@@ -13,6 +13,18 @@ import Kingfisher
 class CreditViewController: UIViewController {
     var movie: MovieInfo!
     
+    private var recommendList: [MovieInfo] = []{
+        didSet {
+            recommendMovieCollectionView.reloadData()
+        }
+    }
+    
+    private var similarList: [MovieInfo] = []{
+        didSet {
+            similarMovieCollectionView.reloadData()
+        }
+    }
+
     private var castList: [Cast] = [] {
         didSet {
             contentTableView.reloadData()
@@ -142,6 +154,12 @@ extension CreditViewController {
         TMDBManager.shared.callCastRequest(movie.id) {
             self.castList = $0.cast
         }
+        TMDBManager.shared.callRecommendRequest(movie.id) {
+            self.recommendList = $0.results
+        }
+        TMDBManager.shared.callSimilarRequest(movie.id) {
+            self.similarList = $0.results
+        }
     }
 }
 
@@ -158,16 +176,17 @@ extension CreditViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == recommendMovieCollectionView {
-            return 4
+            return recommendList.count
         }
         else {
-            return 10
+            return similarList.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.id, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell () }
-        cell.backgroundColor = .lightGray
+        let data = collectionView == recommendMovieCollectionView ? recommendList[indexPath.row] : similarList[indexPath.row]
+        cell.configureDate(data)
         return cell
 
     }
