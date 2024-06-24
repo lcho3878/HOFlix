@@ -103,10 +103,9 @@
 		5422F20F2C0EFA600093932B /* HOFlix */ = {
 			isa = PBXGroup;
 			children = (
+				54A1FC942C2967330088793F /* Resource */,
 				544BE80D2C16DA1600F2D4E9 /* Class */,
 				5422F2BF2C1058780093932B /* Extension */,
-				5422F2102C0EFA600093932B /* AppDelegate.swift */,
-				5422F2122C0EFA600093932B /* SceneDelegate.swift */,
 				5422F2142C0EFA600093932B /* HomeViewController.swift */,
 				5422F2272C0F24C70093932B /* SignUpViewController.swift */,
 				5422F2C22C105E720093932B /* BoxOfficeView */,
@@ -114,10 +113,8 @@
 				544BE8062C16CE2F00F2D4E9 /* TMDCView */,
 				544BE8172C1718C200F2D4E9 /* CreditView */,
 				542E7CC22C1842C20085C355 /* SearchView */,
-				5422F2192C0EFA610093932B /* Assets.xcassets */,
-				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
-				5422F21E2C0EFA610093932B /* Info.plist */,
 				5422F2B82C1052FB0093932B /* APIKey.swift */,
+				5422F21E2C0EFA610093932B /* Info.plist */,
 			);
 			path = HOFlix;
 			sourceTree = "<group>";
@@ -179,6 +176,17 @@
 				544BE81C2C1725C300F2D4E9 /* CastResult.swift */,
 			);
 			path = CreditView;
+			sourceTree = "<group>";
+		};
+		54A1FC942C2967330088793F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5422F2102C0EFA600093932B /* AppDelegate.swift */,
+				5422F2122C0EFA600093932B /* SceneDelegate.swift */,
+				5422F2192C0EFA610093932B /* Assets.xcassets */,
+				5422F21B2C0EFA610093932B /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
