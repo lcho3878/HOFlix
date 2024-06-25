@@ -164,8 +164,8 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0: return "Recommendation"
-        case 1: return "Similar"
+        case 0: return movieList[section].isEmpty ? nil : "Recommendation"
+        case 1: return movieList[section].isEmpty ? nil : "Similar"
         case 2: return "OverView"
         case 3: return "Cast"
         default: return nil
@@ -177,7 +177,15 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 2 ? UITableView.automaticDimension : 100
+        let section = indexPath.section
+        switch section {
+        case 0, 1:
+            return  movieList[section].isEmpty ? 0 : 100
+        case 3: 
+            return 80
+        default:
+            return UITableView.automaticDimension
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

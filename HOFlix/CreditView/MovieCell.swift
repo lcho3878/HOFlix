@@ -44,6 +44,5 @@ class MovieCell: UITableViewCell {
             $0.edges.equalToSuperview()
         }
     }
-    func configureDate() {}
     
 }
