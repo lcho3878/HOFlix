@@ -17,11 +17,7 @@ class CreditViewController: UIViewController {
     
     private var similarList: [MovieInfo] = []
 
-    private var castList: [Cast] = [] {
-        didSet {
-            contentTableView.reloadData()
-        }
-    }
+    private var castList: [Cast] = []
 
     private let backImageView: UIImageView = {
         let backImageView = UIImageView()
@@ -107,14 +103,26 @@ class CreditViewController: UIViewController {
 
 extension CreditViewController {
     private func callRequests() {
+        let group = DispatchGroup()
+        group.enter()
         TMDBManager.shared.callCastRequest(movie.id) {
             self.castList = $0.cast
+            group.leave()
         }
+        group.enter()
+
         TMDBManager.shared.callRecommendRequest(movie.id) {
             self.recommendList = $0.results
+            group.leave()
         }
+        group.enter()
+
         TMDBManager.shared.callSimilarRequest(movie.id) {
             self.similarList = $0.results
+            group.leave()
+        }
+        group.notify(queue: .main) {
+            self.contentTableView.reloadData()
         }
     }
 }
