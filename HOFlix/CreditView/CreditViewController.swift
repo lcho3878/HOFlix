@@ -80,6 +80,7 @@ class CreditViewController: UIViewController {
         
         movieTitleLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(20)
         }
         
         posterImageView.snp.makeConstraints {
