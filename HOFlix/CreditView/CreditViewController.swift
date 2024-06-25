@@ -13,9 +13,7 @@ import Kingfisher
 class CreditViewController: UIViewController {
     var movie: MovieInfo!
     
-    private var recommendList: [MovieInfo] = []
-    
-    private var similarList: [MovieInfo] = []
+    private var movieList: [[MovieInfo]] = [[],[]]
 
     private var castList: [Cast] = []
 
@@ -112,13 +110,13 @@ extension CreditViewController {
         group.enter()
 
         TMDBManager.shared.callRecommendRequest(movie.id) {
-            self.recommendList = $0.results
+            self.movieList[0] = $0.results
             group.leave()
         }
         group.enter()
 
         TMDBManager.shared.callSimilarRequest(movie.id) {
-            self.similarList = $0.results
+            self.movieList[1] = $0.results
             group.leave()
         }
         group.notify(queue: .main) {
@@ -130,25 +128,19 @@ extension CreditViewController {
 extension CreditViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == 0 {
-            return recommendList.count
-        }
-        else {
-            return similarList.count
-        }
+        return movieList[collectionView.tag].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.id, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell () }
-        let data = collectionView.tag == 0 ? recommendList[indexPath.row] : similarList[indexPath.row]
+        let data = movieList[collectionView.tag][indexPath.item]
         cell.configureDate(data)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data: MovieInfo
         let index = indexPath.item
-        data = collectionView.tag == 0 ? recommendList[index] : similarList[index]
+        let data = movieList[collectionView.tag][index]
         let credicVC = CreditViewController()
         credicVC.movie = data
         navigationController?.pushViewController(credicVC, animated: true)
