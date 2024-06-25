@@ -161,7 +161,6 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     private func configureTableView() {
         contentTableView.dataSource = self
         contentTableView.delegate = self
-        contentTableView.rowHeight = UITableView.automaticDimension
         contentTableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.id)
         contentTableView.register(OverViewCell.self, forCellReuseIdentifier: OverViewCell.id)
         contentTableView.register(CastCell.self, forCellReuseIdentifier: CastCell.id)
@@ -186,7 +185,7 @@ extension CreditViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 2 ? UITableView.automaticDimension : 80
+        return indexPath.section == 2 ? UITableView.automaticDimension : 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
