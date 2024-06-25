@@ -38,6 +38,7 @@
 		544BE81D2C1725C300F2D4E9 /* CastResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544BE81C2C1725C300F2D4E9 /* CastResult.swift */; };
 		54A1FC972C2967D00088793F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FC962C2967D00088793F /* TMDBManager.swift */; };
 		54A1FC992C2972340088793F /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */; };
+		54A1FCBA2C2AA8610088793F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FCB92C2AA8610088793F /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		544BE81C2C1725C300F2D4E9 /* CastResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResult.swift; sourceTree = "<group>"; };
 		54A1FC962C2967D00088793F /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 		54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		54A1FCB92C2AA8610088793F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				544BE8152C17108100F2D4E9 /* CreditViewController.swift */,
+				54A1FCB92C2AA8610088793F /* MovieCell.swift */,
 				54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */,
 				544BE81A2C17192000F2D4E9 /* OverViewCell.swift */,
 				544BE8182C1718DC00F2D4E9 /* CastCell.swift */,
@@ -296,6 +299,7 @@
 				542E7CC62C1849030085C355 /* SearchResult.swift in Sources */,
 				542E7CC42C1842D90085C355 /* SearchCollectionViewCell.swift in Sources */,
 				5422F2112C0EFA600093932B /* AppDelegate.swift in Sources */,
+				54A1FCBA2C2AA8610088793F /* MovieCell.swift in Sources */,
 				5422F2BB2C1053D80093932B /* BoxOfficeViewController.swift in Sources */,
 				542E7CC12C183DD20085C355 /* SearchViewController.swift in Sources */,
 				5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */,
