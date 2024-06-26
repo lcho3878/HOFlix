@@ -85,7 +85,7 @@ class TrendViewController: UIViewController {
 
 extension TrendViewController {
     private func callRequest() {
-        TMDBManager.shared.callTrendRequest {
+        TMDBManager.shared.callMovieRequest(api: .trending, type: MovieResult.self) {
             self.movieList = $0.results
         }
     }

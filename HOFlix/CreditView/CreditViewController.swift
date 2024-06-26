@@ -104,22 +104,23 @@ extension CreditViewController {
     private func callRequests() {
         let group = DispatchGroup()
         group.enter()
-        TMDBManager.shared.callCastRequest(movie.id) {
+        TMDBManager.shared.callMovieRequest(api: .credits(movieID: movie.id), type: CastResult.self) {
             self.castList = $0.cast
             group.leave()
         }
         group.enter()
 
-        TMDBManager.shared.callRecommendRequest(movie.id) {
+        TMDBManager.shared.callMovieRequest(api: .recommendations(movieID: movie.id), type: MovieResult.self) {
             self.movieList[0] = $0.results
             group.leave()
         }
         group.enter()
 
-        TMDBManager.shared.callSimilarRequest(movie.id) {
+        TMDBManager.shared.callMovieRequest(api: .similar(movieID: movie.id), type: MovieResult.self) {
             self.movieList[1] = $0.results
             group.leave()
         }
+
         group.notify(queue: .main) {
             self.contentTableView.reloadData()
         }
