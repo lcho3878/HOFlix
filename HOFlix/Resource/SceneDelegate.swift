@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let trendNav = UINavigationController(rootViewController: trendVC)
         trendNav.isNavigationBarHidden = true
         let searchVC = SearchViewController()
+        let searchNav = UINavigationController(rootViewController: searchVC)
 //        let homeVC = HomeViewController()
 //        let signupVC = SignUpViewController()
 //        let boxVC = BoxOfficeViewController()
@@ -33,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        signupVC.title = "회원가입"
 //        boxVC.title = "박스오피스 조회"
 //        lottoVC.title = "로또 번호 조회"
-        tabVC.viewControllers = [searchVC,trendNav]
+        tabVC.viewControllers = [searchNav,trendNav]
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
         

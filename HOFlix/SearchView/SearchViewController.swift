@@ -47,24 +47,18 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        configureUI()
         configureHierarchy()
         configureLayout()
         configureCollectionView()
         configureSearchBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
 
-    private func configureCollectionView() {
-        searchCollectionView.delegate = self
-        searchCollectionView.dataSource = self
-        searchCollectionView.prefetchDataSource = self
-        searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.id)
-    }
-    
-    private func configureSearchBar() {
-        searchBar.delegate = self
-    }
-    
     private func configureHierarchy() {
         view.addSubview(searchBar)
         view.addSubview(searchCollectionView)
@@ -79,6 +73,12 @@ class SearchViewController: UIViewController {
             $0.top.equalTo(searchBar.snp.bottom)
             $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    private func configureUI() {
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.tintColor = .black
+        navigationItem.backButtonDisplayMode = .minimal
     }
     
 }
@@ -102,6 +102,13 @@ extension SearchViewController {
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    private func configureCollectionView() {
+        searchCollectionView.delegate = self
+        searchCollectionView.dataSource = self
+        searchCollectionView.prefetchDataSource = self
+        searchCollectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.id)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResult.results.count
     }
@@ -113,9 +120,20 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = searchResult.results[indexPath.item]
+        let creditVC = CreditViewController()
+        creditVC.movie = movie
+        navigationController?.pushViewController(creditVC, animated: true)
+    }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
+    
+    private func configureSearchBar() {
+        searchBar.delegate = self
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.page = 1
