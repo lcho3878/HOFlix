@@ -85,34 +85,17 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController {
     
-    private func callRequest(_ query: String) {
-        let url = "https://api.themoviedb.org/3/search/movie"
-        let params: Parameters = [
-            "query": query,
-            "language": "ko-KR",
-            "page": page
-        ]
-        let headers: HTTPHeaders = [
-            "Authorization": APIKey.tmdbToken,
-            "accept": "application/json"
-        ]
-        AF.request(url, parameters: params, headers: headers)
-            .responseDecodable(of: SearchResult.self) { response in
-                switch response.result {
-                case .success(let result):
-                    if self.page == 1 {
-                        self.searchResult = result
-                        guard !self.searchResult.results.isEmpty else { return }
-                        self.searchCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-                    }
-                    else {
-                        self.searchResult.results.append(contentsOf: result.results)
-                    }
-                    
-                case .failure(let e):
-                    print(e)
-                }
+    private func callRequest(_ query: String, _ page: Int) {
+        TMDBManager.shared.callMovieRequest(api: .search(query: query, page: page), type: SearchResult.self) { result in
+            if self.page == 1 {
+                self.searchResult = result
+                guard !self.searchResult.results.isEmpty else { return }
+                self.searchCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
+            else {
+                self.searchResult.results.append(contentsOf: result.results)
+            }
+        }
     }
     
 }
@@ -136,17 +119,19 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.page = 1
-        callRequest(searchBar.searchTextField.text!)
+        guard let query = searchBar.searchTextField.text else { return }
+        callRequest(query, page)
     }
     
 }
 
 extension SearchViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let query = searchBar.searchTextField.text else { return }
         for item in indexPaths {
             if searchResult.results.count - 2 == item.row && searchResult.total_pages > page {
                 page += 1
-                callRequest(searchBar.searchTextField.text!)
+                callRequest(query, page)
             }
         }
     }
