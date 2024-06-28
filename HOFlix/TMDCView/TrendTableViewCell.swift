@@ -72,6 +72,7 @@ class TrendTableViewCell: UITableViewCell {
     private let movieTitleLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Alice in BorderLand"
+        lb.textColor = .black
         lb.textAlignment = .center
         lb.font = .systemFont(ofSize: 17)
         return lb
@@ -94,6 +95,7 @@ class TrendTableViewCell: UITableViewCell {
     private let detailLabel: UILabel = {
         let lb = UILabel()
         lb.text = "자세히 보기"
+        lb.textColor = .black
         lb.font = .boldSystemFont(ofSize: 15)
         return lb
     }()
@@ -190,19 +192,19 @@ class TrendTableViewCell: UITableViewCell {
         
         lineView.snp.makeConstraints {
             $0.horizontalEdges.equalTo(movieOverviewLabel)
-            $0.top.equalTo(movieOverviewLabel.snp.bottom).offset(16)
+            $0.top.equalTo(movieOverviewLabel.snp.bottom).offset(8)
             $0.height.equalTo(1)
         }
         
         detailLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.top.equalTo(lineView.snp.bottom).offset(8)
             $0.leading.equalTo(movieOverviewLabel)
         }
         
         detailImageView.snp.makeConstraints {
             $0.size.equalTo(detailLabel.snp.height)
             $0.trailing.equalTo(lineView)
-            $0.bottom.equalToSuperview()
+            $0.centerY.equalTo(detailLabel)
         }
         
     }

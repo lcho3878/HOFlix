@@ -55,7 +55,7 @@ class CreditViewController: UIViewController {
     }
     
     private func configureUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         navigationController?.isNavigationBarHidden = false
         navigationItem.title = "출연/제작"
         

@@ -77,7 +77,7 @@ class SearchViewController: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = .label
         navigationItem.backButtonDisplayMode = .minimal
     }
     
