@@ -39,6 +39,7 @@
 		54A1FC972C2967D00088793F /* TMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FC962C2967D00088793F /* TMDBManager.swift */; };
 		54A1FC992C2972340088793F /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */; };
 		54A1FCBA2C2AA8610088793F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FCB92C2AA8610088793F /* MovieCell.swift */; };
+		54EABE142C2EB3FF001802E0 /* MainTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */; };
 		54FFDF352C2BE28200955EE3 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		54A1FC962C2967D00088793F /* TMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBManager.swift; sourceTree = "<group>"; };
 		54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		54A1FCB92C2AA8610088793F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTapBarController.swift; path = ../../../../../Documents/MainTapBarController.swift; sourceTree = "<group>"; };
 		54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +115,7 @@
 			children = (
 				54A1FC952C2967C40088793F /* Manager */,
 				54A1FC942C2967330088793F /* Resource */,
-				544BE80D2C16DA1600F2D4E9 /* Class */,
+				544BE80D2C16DA1600F2D4E9 /* CustomView */,
 				5422F2BF2C1058780093932B /* Extension */,
 				5422F2142C0EFA600093932B /* HomeViewController.swift */,
 				5422F2272C0F24C70093932B /* SignUpViewController.swift */,
@@ -168,12 +170,13 @@
 			path = TMDCView;
 			sourceTree = "<group>";
 		};
-		544BE80D2C16DA1600F2D4E9 /* Class */ = {
+		544BE80D2C16DA1600F2D4E9 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				544BE80E2C16DA1E00F2D4E9 /* UIPaddingLabel.swift */,
+				54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */,
 			);
-			path = Class;
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		544BE8172C1718C200F2D4E9 /* CreditView */ = {
@@ -294,6 +297,7 @@
 				544BE80C2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift in Sources */,
 				5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */,
 				544BE80F2C16DA1E00F2D4E9 /* UIPaddingLabel.swift in Sources */,
+				54EABE142C2EB3FF001802E0 /* MainTapBarController.swift in Sources */,
 				544BE8162C17108100F2D4E9 /* CreditViewController.swift in Sources */,
 				5422F2C62C105F400093932B /* BoxOfficeTableViewCell.swift in Sources */,
 				5422F22A2C0F2D970093932B /* LottoViewController.swift in Sources */,
