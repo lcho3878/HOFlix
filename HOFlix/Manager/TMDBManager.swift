@@ -8,10 +8,9 @@
 import Foundation
 import Alamofire
 
-class TMDBManager {
+final class TMDBManager {
     
     static let shared = TMDBManager()
-    
     
     private init () {}
     

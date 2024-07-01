@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     private let mainImageView: UIImageView = {
         let view = UIImageView()

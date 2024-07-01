@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TrendViewController: UIViewController {
+final class TrendViewController: UIViewController {
     
     private var movieList: [MovieInfo] = [] {
         didSet{

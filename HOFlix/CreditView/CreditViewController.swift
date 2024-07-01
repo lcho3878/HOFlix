@@ -10,7 +10,7 @@ import SnapKit
 import Alamofire
 import Kingfisher
 
-class CreditViewController: UIViewController {
+final class CreditViewController: UIViewController {
     var movie: MovieInfo!
     
     private var movieList: [[MovieInfo]] = [[],[]]

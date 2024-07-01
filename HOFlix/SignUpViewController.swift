@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SignUpViewController: UIViewController {
+final class SignUpViewController: UIViewController {
 
     private let logoLabel: UILabel = {
         let label = UILabel()

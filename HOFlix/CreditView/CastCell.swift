@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class CastCell: UITableViewCell {
+final class CastCell: UITableViewCell {
     
     private let actorImageView: UIImageView = {
         let view = UIImageView()

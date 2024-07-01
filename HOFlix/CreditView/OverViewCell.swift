@@ -12,14 +12,13 @@ protocol OverViewCellDelegate: AnyObject {
     func updateTableView ()
 }
 
-class OverViewCell: UITableViewCell {
+final class OverViewCell: UITableViewCell {
     weak var delegate: OverViewCellDelegate?
     
     private var isMore = false
     
     private let contentLabel: UILabel = {
         let lb = UILabel()
-        lb.text = "어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구어쩌구"
         lb.font = .systemFont(ofSize: 15)
         lb.numberOfLines = 2
         return lb

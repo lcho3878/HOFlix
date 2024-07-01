@@ -14,8 +14,8 @@ import Alamofire
 
 
 
-class LottoViewController: UIViewController {
-    //1122회 이번주 최신 -> 어떻게 최신을 가져올지 몰루
+final class LottoViewController: UIViewController {
+
     private let lottoAPI = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
     
     private var recentRound: Int?

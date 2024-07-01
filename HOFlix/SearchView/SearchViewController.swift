@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     private var page = 1
     

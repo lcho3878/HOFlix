@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class BoxOfficeTableViewCell: UITableViewCell {
+final class BoxOfficeTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "BoxOfficeTableViewCell"
     

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class MovieCollectionViewCell: UICollectionViewCell {
+final class MovieCollectionViewCell: UICollectionViewCell {
     
     private let movieImageView = {
         let imgView = UIImageView()

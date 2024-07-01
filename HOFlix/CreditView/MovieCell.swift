@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MovieCell: UITableViewCell {
+final class MovieCell: UITableViewCell {
     
     let layout = {
         let layout = UICollectionViewFlowLayout()

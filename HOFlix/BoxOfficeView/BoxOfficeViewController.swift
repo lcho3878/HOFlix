@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class BoxOfficeViewController: UIViewController {
+final class BoxOfficeViewController: UIViewController {
     
     private var yesterday: Date {
         let today = Date()

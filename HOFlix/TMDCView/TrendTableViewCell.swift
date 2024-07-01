@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class TrendTableViewCell: UITableViewCell {
+final class TrendTableViewCell: UITableViewCell {
     
     private let dateLabel: UILabel = {
         let lb = UILabel()
