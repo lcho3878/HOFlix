@@ -120,6 +120,12 @@ extension CreditViewController {
             self.movieList[1] = $0.results
             group.leave()
         }
+        
+        group.enter()
+        TMDBManager.shared.callMovieRequest(api: .videos(movieID: movie.id), type: VideoResult.self) {
+            dump($0)
+            group.leave()
+        }
 
         group.notify(queue: .main) {
             self.contentTableView.reloadData()

@@ -40,6 +40,7 @@
 		54A1FC992C2972340088793F /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */; };
 		54A1FCBA2C2AA8610088793F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FCB92C2AA8610088793F /* MovieCell.swift */; };
 		54EABE142C2EB3FF001802E0 /* MainTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */; };
+		54EABE1F2C329A7A001802E0 /* VideoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE1E2C329A7A001802E0 /* VideoResult.swift */; };
 		54FFDF352C2BE28200955EE3 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		54A1FC982C2972340088793F /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		54A1FCB92C2AA8610088793F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTapBarController.swift; path = ../../../../../Documents/MainTapBarController.swift; sourceTree = "<group>"; };
+		54EABE1E2C329A7A001802E0 /* VideoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResult.swift; sourceTree = "<group>"; };
 		54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 			children = (
 				54A1FC962C2967D00088793F /* TMDBManager.swift */,
 				54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */,
+				54EABE1E2C329A7A001802E0 /* VideoResult.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54EABE1F2C329A7A001802E0 /* VideoResult.swift in Sources */,
 				5422F2C42C105E800093932B /* MovieModel.swift in Sources */,
 				544BE80C2C16D22C00F2D4E9 /* UITableViewCell+Extension.swift in Sources */,
 				5422F2C82C10664E0093932B /* Date+Extension.swift in Sources */,
