@@ -16,6 +16,8 @@ final class CreditViewController: UIViewController {
     private var movieList: [[MovieInfo]] = [[],[]]
 
     private var castList: [Cast] = []
+    
+    private var previewKey: String?
 
     private let backImageView: UIImageView = {
         let backImageView = UIImageView()
@@ -39,6 +41,19 @@ final class CreditViewController: UIViewController {
         posterImageView.contentMode = .scaleAspectFill
         return posterImageView
     }()
+    
+    private lazy var previewButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "미리보기"
+        configuration.baseBackgroundColor = .white
+        configuration.baseForegroundColor = .black
+        configuration.buttonSize = .small
+        let bt = UIButton(configuration: configuration, primaryAction: UIAction(handler: { _ in
+            self.clickPreviewButton()
+        }))
+        return bt
+    }()
+    
     
     private let contentTableView: UITableView = {
         let contentTableView = UITableView()
@@ -68,6 +83,7 @@ final class CreditViewController: UIViewController {
         view.addSubview(backImageView)
         backImageView.addSubview(movieTitleLabel)
         backImageView.addSubview(posterImageView)
+        view.addSubview(previewButton)
         view.addSubview(contentTableView)
     }
     
@@ -88,6 +104,10 @@ final class CreditViewController: UIViewController {
             $0.bottom.equalToSuperview()
             $0.leading.equalTo(movieTitleLabel).offset(8)
             $0.width.equalTo(backImageView).dividedBy(4)
+        }
+        
+        previewButton.snp.makeConstraints {
+            $0.bottom.trailing.equalTo(backImageView).inset(8)
         }
         
         contentTableView.snp.makeConstraints {
@@ -123,13 +143,23 @@ extension CreditViewController {
         
         group.enter()
         TMDBManager.shared.callMovieRequest(api: .videos(movieID: movie.id), type: VideoResult.self) {
-            dump($0)
+            self.previewButton.isHidden = $0.results.isEmpty
+            if let firstItem = $0.results.first {
+                self.previewKey = firstItem.key
+            }
             group.leave()
         }
 
         group.notify(queue: .main) {
             self.contentTableView.reloadData()
         }
+    }
+}
+
+extension CreditViewController {
+    private func clickPreviewButton() {
+        guard let previewKey = previewKey else { return }
+
     }
 }
 
