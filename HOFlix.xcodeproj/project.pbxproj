@@ -41,6 +41,7 @@
 		54A1FCBA2C2AA8610088793F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1FCB92C2AA8610088793F /* MovieCell.swift */; };
 		54EABE142C2EB3FF001802E0 /* MainTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */; };
 		54EABE1F2C329A7A001802E0 /* VideoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE1E2C329A7A001802E0 /* VideoResult.swift */; };
+		54EABE212C329F95001802E0 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE202C329F95001802E0 /* PreviewController.swift */; };
 		54FFDF352C2BE28200955EE3 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		54A1FCB92C2AA8610088793F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		54EABE132C2EB3FF001802E0 /* MainTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTapBarController.swift; path = ../../../../../Documents/MainTapBarController.swift; sourceTree = "<group>"; };
 		54EABE1E2C329A7A001802E0 /* VideoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResult.swift; sourceTree = "<group>"; };
+		54EABE202C329F95001802E0 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		54FFDF342C2BE28200955EE3 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				544BE8062C16CE2F00F2D4E9 /* TMDCView */,
 				544BE8172C1718C200F2D4E9 /* CreditView */,
 				542E7CC22C1842C20085C355 /* SearchView */,
+				54EABE202C329F95001802E0 /* PreviewController.swift */,
 				5422F2B82C1052FB0093932B /* APIKey.swift */,
 				5422F21E2C0EFA610093932B /* Info.plist */,
 			);
@@ -314,6 +317,7 @@
 				54A1FCBA2C2AA8610088793F /* MovieCell.swift in Sources */,
 				5422F2BB2C1053D80093932B /* BoxOfficeViewController.swift in Sources */,
 				542E7CC12C183DD20085C355 /* SearchViewController.swift in Sources */,
+				54EABE212C329F95001802E0 /* PreviewController.swift in Sources */,
 				5422F2282C0F24C70093932B /* SignUpViewController.swift in Sources */,
 				544BE80A2C16D22000F2D4E9 /* TrendTableViewCell.swift in Sources */,
 				5422F2C12C1058830093932B /* UITextField+Extension.swift in Sources */,

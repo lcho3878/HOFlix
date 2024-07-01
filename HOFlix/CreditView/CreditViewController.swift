@@ -72,6 +72,7 @@ final class CreditViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         navigationController?.isNavigationBarHidden = false
+        navigationItem.backButtonDisplayMode = .minimal
         navigationItem.title = "출연/제작"
         
         backImageView.kf.setImage(with: movie.backImageURL)
@@ -159,7 +160,10 @@ extension CreditViewController {
 extension CreditViewController {
     private func clickPreviewButton() {
         guard let previewKey = previewKey else { return }
-
+        let previewVC = PreviewController()
+        previewVC.previewKey = previewKey
+        navigationController?.pushViewController(previewVC, animated: true)
+        
     }
 }
 
